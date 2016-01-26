@@ -8,13 +8,20 @@ module.exports = function(gulp, _, dir) {
     });
 
     gulp.task('copy:file', function() {
-        var htmlFilter = _.filter('*.html',{restore: true});
-        var jsFilter = _.filter('**/*.js', {restore: true});
-        return gulp.src(dir(dir('build/**/*')))            
-            .pipe(jsFilter)
-            .pipe(jsFilter.restore)
-            .pipe(htmlFilter)
-            .pipe(htmlFilter.restore)
+        var htmlFilter = _.filter('*.html', {
+            restore: true
+        });
+        var jsFilter = _.filter('**/*.js', {
+            restore: true
+        });
+        // var scssFilter = _.filter('!*.scss', {restore: true});
+        return gulp.src([dir('build/**/*'), '!' + dir('**/*.scss')])
+            // .pipe(jsFilter)
+            // .pipe(jsFilter.restore)
+            // .pipe(htmlFilter)
+            // .pipe(htmlFilter.restore)
+            // .pipe(scssFilter)
+            // .pipe(scssFilter.restore)
             .pipe(gulp.dest(dir('../')));
     });
 
