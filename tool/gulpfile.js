@@ -28,6 +28,3 @@ files.forEach(function(file) {
     }
 });
 gulp.task('check', G.shell.task(['es-checker']));
-gulp.task("default", function() {
-    console.log(__dirname);
-});

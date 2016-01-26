@@ -1,0 +1,21 @@
+.login-head {
+  padding: 92px 0 20px 0;
+  color: #1093be;
+  font-size: 30px;
+  height: 50px;
+  position: relative;
+}
+
+.login-view {
+  border: 10px solid #e8e8e8;
+  min-height: 300px;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px #D5D5D5, 0 5px 5px rgba(50, 50, 50, 0.1);
+  background: #Fff;
+  padding: 15px;
+}
+
+.login-view img {
+  width: 500px;
+  height: 350px;
+}

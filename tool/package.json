@@ -7,8 +7,7 @@
     "test": ""
   },
   "repository": {
-    "type": "git",
-    "url": "https://github.com/LinJieLinLin/DotDotDot.git"
+    "type": "git"
   },
   "dependencies": {
     "bower": "1.7.1",
@@ -18,6 +17,7 @@
     "gulp-cli": "*",
     "gulp-load-plugins": "*",
     "gulp-notify": "*",
+    "gulp-filter": "*",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.1.1",
     "gulp-shell": "*",
@@ -28,17 +28,6 @@
     "gulp-livereload": "^3.8.1",
     "minimist": "^1.2.0"
   },
-  "keywords": [
-    "dot",
-    "menu"
-  ],
   "author": "HappyLinLin",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/LinJieLinLin/DotDotDot/issues"
-  },
-  "homepage": "https://github.com/LinJieLinLin/DotDotDot#readme",
-  "devDependencies": {
-    
-  }
+  "license": "Apache-2.0"
 }

@@ -6,9 +6,9 @@
     ],
     "license": "NO",
     "description": "",
-    "main": "a.txt",
+    "main": "login.html",
     "moduleType": [],
-    "homepage": "",
+    "homepage": "index.html",
     "ignore": [
         "**/.*",
         "*.cmd",
@@ -16,6 +16,7 @@
         "bower_components"
     ],
     "dependencies": {
-        "jquery": "1.11.1"
+        "jquery": "1.11.1",
+        "angular": "1.2.9"
     }
 }
