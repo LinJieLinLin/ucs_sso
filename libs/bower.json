@@ -1,0 +1,21 @@
+{
+    "name": "sso-lib",
+    "version": "0.0.1",
+    "authors": [
+        "linj"
+    ],
+    "license": "NO",
+    "description": "",
+    "main": "a.txt",
+    "moduleType": [],
+    "homepage": "",
+    "ignore": [
+        "**/.*",
+        "*.cmd",
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "jquery": "1.11.1"
+    }
+}
