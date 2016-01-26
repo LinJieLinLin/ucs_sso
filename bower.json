@@ -13,7 +13,6 @@
         "**/.*",
         "*.cmd",
         "node_modules",
-        // "tool",
         "bower_components"
     ],
     "dependencies": {
