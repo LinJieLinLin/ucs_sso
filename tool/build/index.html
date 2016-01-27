@@ -18,14 +18,19 @@
     <link href="css/login.css" rel="stylesheet" type="text/css" />
 
     <script src="../jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="../angular/dist/angular.min.js" type="text/javascript"></script>
+    <script src="../angular/angular.min.js" type="text/javascript"></script>
 
     <script src="js/common/common.js" type="text/javascript"></script>
     <!-- // <script src="js/common/default.js" type="text/javascript"></script> -->
     <script src="js/login/login.js" type="text/javascript"></script>
+
+    <link href="js/directive/footer/footer.css" rel="stylesheet" type="text/css" />
+    <script src="js/directive/footer/footer.js" type="text/javascript"></script>
+    <link href="js/directive/login/login.css" rel="stylesheet" type="text/css" />
+    <script src="js/directive/login/login.js" type="text/javascript"></script>
 </head>
 
-<body ng-controller="mainCtrl" class="gray-bg">
+<body ng-controller="loginCtrl" class="gray-bg">
     <section class="g-w-mid login-head">
         <span>用户登录</span><span>|</span>
         <span>User Login</span>
@@ -36,33 +41,13 @@
                 <img src="imgs/login/login_1.jpg" />
             </div>
             <div class="f-r">
-                <div style="height:350px;border:1px solid red; width:500px;">
-                    {{hi}}
-                </div>
+                <login-sso></login-sso>
             </div>
             <div class="clear"></div>
         </div>
     </section>
-    <section class="g-w-mid ">
-        <!--footer view-->
-        <div class="footer-view g-min-w s-min-w footer2-view">
-            <div class="g-w-mid s-w-mid">
-                <div class="footer-nav-box" align="center">
-                    <span><a href="http://www.itdayang.com/about.html"  target="_blank" class="mg-l10 mg-r10">关于我们</a><i>|</i>
-                        </span>
-                    <span><a href="http://www.itdayang.com/contact.html" target="_blank" class="mg-l10 mg-r10">联系我们</a><i>|</i>
-                        </span>
-                    <span><a onclick="Createing()" class="mg-l10 mg-r10">法律条款</a><i>|</i>
-                        </span>
-                    <span><a onclick="Createing()" class="mg-l10 mg-r10">帮助中心</a><i>|</i>
-                        </span>
-                    <span><a onclick="Createing()" class="mg-l10 mg-r10">意见反馈</a><i>|</i>
-                        </span>
-                </div>
-                <div align="center">©2009-2015 广州市大洋信息技术股份有限公司 粤ICP备05139291号-4 </div>
-            </div>
-        </div>
-        <!--footer view end-->
+    <section class="g-w-mid">
+        <footer-sso a='hi'></footer-sso>
     </section>
 </body>
 

@@ -1,7 +1,7 @@
 var browserSync = require('browser-sync');
 var path = require('path');
 module.exports = function(gulp, _, dir) {
-    gulp.task('default',['serve'], function() {
+    gulp.task('default', ['serve'], function() {
         console.log('default:hello world');
     });
 
@@ -11,6 +11,7 @@ module.exports = function(gulp, _, dir) {
         // 'directive:tmpl', 
         // 'compile:js', 
         // 'compile:html', 
+        'copy:file',
         'watch'
     ]), function() {
         console.log('serve:hello world');
@@ -19,7 +20,7 @@ module.exports = function(gulp, _, dir) {
                 // routes: {
                 //     '/bower_components': 'bower_components'
                 // },
-                baseDir: '../../'                
+                baseDir: '../../'
             },
             port: 1239,
             ui: {

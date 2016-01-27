@@ -1,0 +1,14 @@
+.footer-view {
+  color: #999;
+  padding: 30px 0;
+  text-align: center;
+}
+
+.footer-view a {
+  color: #999;
+  margin: 0 10px;
+}
+
+.footer-view div:first-child {
+  margin-bottom: 3px;
+}

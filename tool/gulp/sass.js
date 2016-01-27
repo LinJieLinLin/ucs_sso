@@ -1,6 +1,6 @@
 module.exports = function (gulp, _, dir) {
     gulp.task('sass', function () {
-        return gulp.src(dir('build/*/*.scss'))
+        return gulp.src(dir('build/**/*.scss'))
         .pipe(_.plumber())
 
         // use sourcemaps to help developer to debug.

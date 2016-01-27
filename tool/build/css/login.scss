@@ -14,7 +14,29 @@
     background: #Fff;
     padding: 15px;
     img {
-        width: 500px;
-        height: 350px;
+        width: 630px;
+        height: 352px;
+    }
+}
+
+@media screen and (max-width:1240px) {
+    html {
+        min-width: 1024px;
+    }
+    body {
+        min-width: 1024px;
+    }
+    .g-w-mid {
+        width: 1000px;
+    }
+    .login-view {
+        img {
+            width: 500px;
+        }
+    }
+    .f-r {
+        .login-sso {
+            width: 430px;
+        }
     }
 }

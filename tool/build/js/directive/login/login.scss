@@ -1,0 +1,71 @@
+.login-sso {
+    width: 500px;
+    height: 350px;
+    border: 1px solid #bfbfbf;
+    div {
+        position: relative;
+        width: 100%;
+    }
+    .b-gray {
+        border: 1px solid #ccc;
+    }
+    .blue-c {
+        color: #0095CE;
+    }
+    .input {
+        @extend .b-gray;
+        height: 30px;
+        margin-top: 8px;
+        margin-bottom: 20px;
+    }
+    .input-1 {
+        @extend .input;
+        background: #fff url(common_icon.png) no-repeat 10px -1073px;
+    }
+    .input-2 {
+        @extend .input;
+        background: #fff url(common_icon.png) no-repeat 10px -1119px;
+    }
+    .main {
+        padding: 8% 16%;
+        input {
+            width: 200px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 15px;
+            border: 0;
+            padding: 0;
+            position: absolute;
+            left: 42px;
+            top: 4px;
+        }
+    }
+    .btn {
+        background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
+        color: #fff;
+        box-shadow: none;
+        text-decoration: none;
+        border-radius: 3px;
+        text-align: center;
+        cursor: painter;
+        &:hover {
+            background: -webkit-linear-gradient(90deg, #297bd6, #31a5f2);
+        }
+    }
+    .btn-full {
+        width: 100%;
+        display: inline-block;
+        height: 55px;
+        font-size: 23px;
+        line-height: 55px;
+    }
+    .list {
+        line-height: 50px;
+    }
+}
+
+@media screen and (max-width:1240px) {
+    .login-sso {
+        width: 430px;
+    }
+}
