@@ -2,7 +2,7 @@ body {
   background: #f2f2f2;
 }
 
-.login-head {
+.register-head {
   padding: 92px 0 20px 0;
   color: #1093be;
   font-size: 30px;
@@ -10,7 +10,7 @@ body {
   position: relative;
 }
 
-.login-view {
+.register-view {
   border: 10px solid #e8e8e8;
   min-height: 300px;
   border-radius: 10px;
@@ -19,25 +19,7 @@ body {
   padding: 15px;
 }
 
-.login-view img {
+.register-view img {
   width: 630px;
   height: 352px;
-}
-
-@media screen and (max-width: 1240px) {
-  html {
-    min-width: 1024px;
-  }
-  body {
-    min-width: 1024px;
-  }
-  .g-w-mid {
-    width: 1000px;
-  }
-  .login-view img {
-    width: 500px;
-  }
-  .f-r .login-sso {
-    width: 430px;
-  }
 }
