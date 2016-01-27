@@ -16,19 +16,19 @@ directiveSso.directive('registerSso', function() {
         },
         controller: function($scope, $timeout, $http, request) {
             var rootUrl = 'http://localhost:7700/';
-            $scope.loginText = '登录';
-            $scope.lData = {};
-            if (localStorage.account) {
-                $scope.lData.account = localStorage.account;
+            $scope.registerText = '注册';
+            $scope.rData = {};
+            if (localStorage.rAccount) {
+                $scope.rData.account = localStorage.rAccount;
             }
 
             //检测用户数据
-            $scope.checkLoginSso = function(argData) {
+            $scope.checkRegisterSso = function(argData) {
                 var msg = '填写数据有误！';
                 if (!argData.account) {
                     return -1;
                 }
-                localStorage.account = $scope.lData.account;
+                localStorage.rAccount = $scope.rData.account;
 
                 //password
                 if (!argData.password) {
@@ -45,19 +45,15 @@ directiveSso.directive('registerSso', function() {
                 return decodeURIComponent(result[1]);
             };
             //注册
-            $scope.register = function() {
-                location.href = 'register.html';
-            };
-            //登录
-            $scope.loginSso = function() {
-                if ($scope.loginText !== '登录') {
+            $scope.registerSso = function() {
+                if ($scope.registerText !== '注册') {
                     return;
                 }
-                var msg = $scope.checkLoginSso($scope.lData);
-                if (msg === -1) {
-                    return;
-                }
+                var msg = $scope.checkRegisterSso($scope.rData);
                 if (msg !== 0) {
+                    if (msg === -1) {
+                        return;
+                    }
                     try {
                         binApp.alert(msg, {
                             action: 'top'
@@ -68,18 +64,19 @@ directiveSso.directive('registerSso', function() {
                     return;
                 }
                 var data = {
-                    usr: $scope.lData.account,
-                    pwd: $scope.lData.password
+                    usr: $scope.rData.account,
+                    pwd: $scope.rData.password
                 };
                 var option = {
                     method: 'GET',
                     url: rootUrl + 'sso/api/login?time=' + new Date().getTime(),
                     params: data
                 };
-                $scope.loginText = '正在登录...';
+                $scope.registerText = '正在注册...';
                 request(option).then(function(rs) {
-                    $scope.loginText = '登录';
-                    $scope.lData.password = '';
+                    $scope.registerText = '注册';
+                    $scope.rData.password = '';
+                    $scope.rData.rePassword = '';
                     var url = getUrl('url');
                     var userInfo = rs.data.usr;
                     if (userInfo.BAttr && userInfo.BAttr.HELP && userInfo.BAttr.HELP[0] && userInfo.BAttr.HELP[0].val == 1) {
@@ -101,8 +98,9 @@ directiveSso.directive('registerSso', function() {
                         window.location.href = url + '?token=' + rs.data.token + hash;
                     }
                 }, function(e) {
-                    $scope.loginText = '登录';
-                    $scope.lData.password = '';
+                    $scope.registerText = '注册';
+                    $scope.rData.password = '';
+                    $scope.rData.rePassword = '';
                     try {
                         binApp.alert(e.data.data.msg || '请重试', {
                             action: 'top'

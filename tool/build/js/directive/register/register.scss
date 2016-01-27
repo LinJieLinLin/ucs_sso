@@ -1,0 +1,82 @@
+.register-sso {
+    margin: 30px auto;
+    width: 500px;
+    min-height: 300px;
+    .b-gray {
+        border: 1px solid #ccc;
+    }
+    .title {
+        color: #fff;
+        text-align: center;
+        background: url(registration-process-bg.png) no-repeat center 0;
+        line-height: 40px;
+        height: 40px;
+        font-size: 16px;
+        text-shadow: 1px 1px 1px #2F9FCA;
+        margin-bottom: 30px;
+    }
+    label {
+        display: block;
+        margin-top: 8px;
+        margin-bottom: 30px;
+        div {
+            vertical-align: middle;
+            display: inline-block;
+            position: relative;
+            @extend .input;
+            &:first-child {
+                text-align: right;
+                width: 100px;
+                margin-right: 10px;
+            }
+            &:nth-child(2) {
+                width: 300px;
+            }
+        }
+        input {
+            width: 200px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 15px;
+            border: 0;
+            padding: 0;
+            position: absolute;
+            left: 42px;
+            top: 4px;
+        }
+    }
+    .input {
+        line-height: 30px;
+        height: 30px;        
+    }
+    .input-1 {
+        @extend .b-gray;
+        background: #fff url(common_icon.png) no-repeat 10px -1073px;
+    }
+    .input-2 {
+        @extend .b-gray;
+        background: #fff url(common_icon.png) no-repeat 10px -1119px;
+    }
+    .btn {
+        background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
+        color: #fff;
+        box-shadow: none;
+        text-decoration: none;
+        border-radius: 3px;
+        text-align: center;
+        cursor: painter;
+        &:hover {
+            background: -webkit-linear-gradient(90deg, #297bd6, #31a5f2);
+        }
+    }
+    .btn-reg {
+        width: 300px;
+        display: inline-block;
+        height: 55px;
+        font-size: 23px;
+        line-height: 55px;
+    }
+    .center{
+        text-align: center;
+    }
+}

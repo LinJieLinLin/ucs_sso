@@ -1,22 +1,28 @@
-<section class="login-sso">
-    <form name="login" class="main">
-        <label for="account">
-            <div>用户名/邮箱</div>
-            <div class="input-1">
-                <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="lData.account" ng-blur="checkLoginSso(lData)" required>
+<section class="register-sso">
+    <div>
+        <div class="title">请填写基本信息</div>
+        <form name="register">
+            <label for="account">
+                <div>帐户名:</div>
+                <div class="input-1">
+                    <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="rData.account" ng-blur="checkRegisterSso(rData)" required>
+                </div>
+            </label>
+            <label for="pwd">
+                <div>设置密码:</div>
+                <div class="input-2">
+                    <input type="password" placeholder="密码" id="pwd" maxlength="20" ng-model="rData.password" required>
+                </div>
+            </label>
+            <label for="repwd">
+                <div>确认密码:</div>
+                <div class="input-2">
+                    <input type="password" placeholder="密码" id="repwd" maxlength="20" ng-model="rData.rePassword" required>
+                </div>
+            </label>
+            <div class="center">
+                <a class="btn btn-reg" id="login" ng-click="registerSso()">{{registerText}}</a>
             </div>
-        </label>
-        <label for="psd">
-            <div>密码</div>
-            <div class="input-2">
-                <input type="password" placeholder="密码" id="psd" maxlength="20" ng-model="lData.password" required>
-            </div>
-        </label>
-        <div class="list">
-            <a class="blue-c" id="register" ng-click="register()">免费注册</a>
-        </div>
-        <div >
-            <a class="btn btn-full" id="login" ng-click="loginSso()">{{loginText}}</a>
-        </div>
-    </form>
+        </form>
+    </div>
 </section>

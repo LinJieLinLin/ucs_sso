@@ -25,6 +25,10 @@ directiveSso.directive('loginSso', function() {
             //检测用户数据
             $scope.checkLoginSso = function(argData) {
                 var msg = '填写数据有误！';
+                try {
+                    argData.account = $('#account').val();
+                    argData.password = $('#pwd').val();
+                } catch (e) {}
                 if (!argData.account) {
                     return -1;
                 }

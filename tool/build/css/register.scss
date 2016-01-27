@@ -12,13 +12,19 @@ body {
 
 .register-view {
     border: 10px solid #e8e8e8;
-    min-height: 300px;
+    min-height: 380px;
     border-radius: 10px;
     box-shadow: 0 1px 1px #D5D5D5, 0 5px 5px rgba(50, 50, 50, .1);
     background: #Fff;
-    padding: 15px;
-    img {
-        width: 630px;
-        height: 352px;
+}
+@media screen and (max-width:1240px) {
+    html {
+        min-width: 1024px;
+    }
+    body {
+        min-width: 1024px;
+    }
+    .g-w-mid {
+        width: 1000px;
     }
 }

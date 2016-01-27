@@ -1,0 +1,93 @@
+.register-sso {
+  margin: 30px auto;
+  width: 500px;
+  min-height: 300px;
+}
+
+.register-sso .b-gray, .register-sso .input-1, .register-sso .input-2 {
+  border: 1px solid #ccc;
+}
+
+.register-sso .title {
+  color: #fff;
+  text-align: center;
+  background: url(registration-process-bg.png) no-repeat center 0;
+  line-height: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px #2F9FCA;
+  margin-bottom: 30px;
+}
+
+.register-sso label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 30px;
+}
+
+.register-sso label div {
+  vertical-align: middle;
+  display: inline-block;
+  position: relative;
+}
+
+.register-sso label div:first-child {
+  text-align: right;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.register-sso label div:nth-child(2) {
+  width: 300px;
+}
+
+.register-sso label input {
+  width: 200px;
+  height: 20px;
+  line-height: 20px;
+  font-size: 15px;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  left: 42px;
+  top: 4px;
+}
+
+.register-sso .input, .register-sso label div {
+  line-height: 30px;
+  height: 30px;
+}
+
+.register-sso .input-1 {
+  background: #fff url(common_icon.png) no-repeat 10px -1073px;
+}
+
+.register-sso .input-2 {
+  background: #fff url(common_icon.png) no-repeat 10px -1119px;
+}
+
+.register-sso .btn {
+  background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
+  color: #fff;
+  box-shadow: none;
+  text-decoration: none;
+  border-radius: 3px;
+  text-align: center;
+  cursor: painter;
+}
+
+.register-sso .btn:hover {
+  background: -webkit-linear-gradient(90deg, #297bd6, #31a5f2);
+}
+
+.register-sso .btn-reg {
+  width: 300px;
+  display: inline-block;
+  height: 55px;
+  font-size: 23px;
+  line-height: 55px;
+}
+
+.register-sso .center {
+  text-align: center;
+}

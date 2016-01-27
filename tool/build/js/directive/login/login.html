@@ -3,13 +3,13 @@
         <label for="account">
             <div>用户名/邮箱</div>
             <div class="input-1">
-                <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="lData.account" ng-blur="checkLoginSso(lData)" required>
+                <input type="text" placeholder="邮箱/用户名/手机号" id="account" value="" maxlength="20" ng-model="lData.account" ng-blur="checkLoginSso(lData)" required>
             </div>
         </label>
-        <label for="psd">
+        <label for="pwd">
             <div>密码</div>
             <div class="input-2">
-                <input type="password" placeholder="密码" id="psd" maxlength="20" ng-model="lData.password" required>
+                <input type="password" placeholder="密码" id="pwd" value="" maxlength="20" ng-model="lData.password" required>
             </div>
         </label>
         <div class="list">
