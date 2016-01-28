@@ -1,0 +1,68 @@
+/********************* 
+@Author bingoo
+模板1 - 店铺样式
+*********************/
+
+/*中部布局*/
+.home-main-wrap .m-view{margin:0 0 0 300px;}
+.home-main-wrap .sidebar-view{width:290px;float:left;margin-left:-100%;}
+
+
+/*首屏幻灯片*/
+.home-banner-view{width:900px;height:425px;margin-bottom:10px;}
+.home-banner-box{width:900px;height:425px;}
+.home-banner-box .swiperBtnView a{border-radius:100%;background:#000;opacity:.3;filter:alpha(opacity=30);}
+.home-banner-box .swiperBtnView a.current{background:#fff;opacity:1;filter:alpha(opacity=100);}
+
+/*店内搜索*/
+.shop-search-box{position:relative;width:290px;height:40px;background:#e04e5a;overflow:hidden;margin-bottom:10px;}
+.shop-search-box .text{width:230px;height:20px;line-height:20px;padding:9px 7px;position:absolute;background:#fff;left:1px;top:1px;border:0;}
+.shop-search-box .sub-btn{width:42px;height:38px;line-height:38px;position:absolute;right:0px;top:1px;background: url(../../imgs/common_icon.png) no-repeat -36px -1008px;border:0; cursor:pointer;}
+.sort-sec-t-box .sub-btn:hover{background-color:#e04e5a;}
+
+/*店内分类*/
+.all-sort-box{margin-bottom:10px;}
+.all-sort-box .main-warp{margin:0;padding:0;border:2px solid #e04e5a;}
+.all-sort-box .catalog{font-size:18px;padding:6px 10px;background:#ffe5e5;}
+.all-sort-box .catalog em{margin-top:-4px;*margin-top:0px;}
+.all-sort-box .dl{border-bottom:0;padding:0;text-indent:40px;}
+.all-sort-box .dt{margin-bottom:0;background:#f2f2f2;line-height:35px;}
+.all-sort-box .dt a{font-weight:bold;display:block;position:relative;width:100%;}
+.all-sort-box .dt a em{position:absolute;top:50%;margin:-2px 0 0 0;left:14px;}
+.all-sort-box .dd{width:100%;position:relative;line-height:25px;padding:6px 0;}
+
+/*热门课程推荐*/
+.cont-wrap .catalogs{background:#fff;}
+.cont-wrap .main-warp{border-top:2px solid #e04e5a;}
+
+/*热销课程*/
+.top-subject-list{border:1px solid #d9d9d9;margin-bottom:10px;}
+.top-subject-list .catalog{background:#f2f2f2;border-bottom:2px solid #e04e5a;line-height:38px;
+background: -webkit-linear-gradient(90deg, #f2f2f2, #fafafa);
+background: -moz-linear-gradient(90deg, #f2f2f2, #fafafa);
+background: -o-linear-gradient(90deg, #f2f2f2, #fafafa);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#f2f2f2', GradientType='0');}
+.top-subject-list .catalog h2{color:#e04e5a;font-size:16px;padding:0 15px;}
+.top-subject-list .subject-list-3{margin-left:-2px;padding:0 0 18px;width:100%;}
+.top-subject-list .subject-list-3 .box{margin:18px 0 0 20px;}
+.top-subject-list .subject-list-3 .main{padding-bottom:0;}
+.subject-list-3 .box-shadow{border-color:#f2ced1;}
+
+.cont-wrap .catalog{border:1px solid #d9d9d9;border-bottom:2px solid #0085c3;padding:0;line-height:38px;}
+.cont-wrap .catalog h2{border:0;color:#0085c3;font-size:16px;}
+.cont-wrap .catalog .more{margin:0 15px 0 0;}
+.cont-wrap .catalog.blue-style{border-bottom-color:#0085c3;}
+.cont-wrap .catalog.blue-style h2{color:#0085c3;}
+.cont-wrap .catalog.green-style{border-bottom-color:#3aa625;}
+.cont-wrap .catalog.green-style h2{color:#3aa625;}
+
+.cont-wrap .subject-list-3{margin:-10px 0 0 -15px;}
+.cont-wrap .subject-list-3 .ul{position:relative;}
+.cont-wrap .subject-list-3 .box{width:288px;border:1px solid #d9d9d9;margin:10px 0 0 15px;}
+.cont-wrap .subject-list-3 .img{width:288px;height:216px;}
+.cont-wrap .subject-list-3 .img .title{color:#fff;height:48px;line-height:18px;}
+.cont-wrap .subject-list-3 .img .title span{overflow:visible; white-space:normal;text-align:left;padding:5px 10px 0;}
+.cont-wrap .subject-list-3 .main{padding:10px 10px 5px;}
+.cont-wrap .subject-list-3 .box:hover{border-color:#f2ced1;}
+
+

@@ -48,7 +48,9 @@
 }
 
 .login-sso .btn {
-  background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
+  background: -moz-linear-gradient(left, #1e71ce, #389eed);
+  background: -o-linear-gradient(left, #1e71ce, #389eed);
+  background: linear-gradient(90deg, #1e71ce, #389eed);
   color: #fff;
   box-shadow: none;
   text-decoration: none;
@@ -58,7 +60,9 @@
 }
 
 .login-sso .btn:hover {
-  background: -webkit-linear-gradient(90deg, #297bd6, #31a5f2);
+  background: -moz-linear-gradient(left, #297bd6, #31a5f2);
+  background: -o-linear-gradient(left, #297bd6, #31a5f2);
+  background: linear-gradient(90deg, #297bd6, #31a5f2);
 }
 
 .login-sso .btn-full {

@@ -16,23 +16,50 @@ directiveSso.directive('registerSso', function() {
         },
         controller: function($scope, $timeout, $http, request) {
             var rootUrl = 'http://localhost:7700/';
-            $scope.registerText = '注册';
             $scope.rData = {};
+
+            $scope.init = function() {
+                if (rootUrl[rootUrl.length - 1] !== '/') {
+                    rootUrl += '/';
+                }
+                $scope.registerText = '注册';
+            };
+            $scope.init();
             if (localStorage.rAccount) {
                 $scope.rData.account = localStorage.rAccount;
             }
+            //检测用户名是否存在
+            $scope.checkAccount = function() {
+                var data = {
+                    usr: $scope.rData.account
+                };
+                var option = {
+                    method: 'GET',
+                    url: rootUrl + 'ucenter/api/checkUser',
+                    params: data
+                };
+                request(option).then(function(rs) {
+                    console.log('用户名已存在');
+                }, function(e) {
 
+                });
+            };
             //检测用户数据
             $scope.checkRegisterSso = function(argData) {
                 var msg = '填写数据有误！';
                 if (!argData.account) {
                     return -1;
                 }
+                $scope.checkAccount();
                 localStorage.rAccount = $scope.rData.account;
 
                 //password
                 if (!argData.password) {
                     return -1;
+                }
+                if (argData.password !== argData.rePassword) {
+                    argData.password = argData.rePassword = '';
+                    return '两次密码不一置！';
                 }
                 return 0;
             };
@@ -69,24 +96,28 @@ directiveSso.directive('registerSso', function() {
                 };
                 var option = {
                     method: 'GET',
-                    url: rootUrl + 'sso/api/login?time=' + new Date().getTime(),
+                    url: rootUrl + 'ucenter/api/addUser',
                     params: data
                 };
                 $scope.registerText = '正在注册...';
                 request(option).then(function(rs) {
+                    if (!rs.data.token) {
+                        rs.data.token = rs.msg;
+                    }
                     $scope.registerText = '注册';
                     $scope.rData.password = '';
                     $scope.rData.rePassword = '';
+
                     var url = getUrl('url');
                     var userInfo = rs.data.usr;
                     if (userInfo.BAttr && userInfo.BAttr.HELP && userInfo.BAttr.HELP[0] && userInfo.BAttr.HELP[0].val == 1) {
                         var type = url.match(/(http|https):\/\//)[0];
-                        var u = type + url.split(type)[1].split('/')[0] + '/guidance-space.html' + '?token=' + rs.data.token;
+                        var u = type + url.split(type)[1].split('/')[0] + 'guidance-space.html' + '?token=' + rs.data.token;
                         window.location.href = u;
                         return;
                     }
                     if (url === '') {
-                        window.location.href = rootUrl + '/ucenter/my.html?token=' + rs.data.token;
+                        window.location.href = 'my.html?token=' + rs.data.token;
                         return;
                     }
                     var urlArr = url.split('#');
