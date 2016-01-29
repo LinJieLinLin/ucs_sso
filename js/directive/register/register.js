@@ -64,7 +64,9 @@ directiveSso.directive('registerSso', function() {
                 }
                 $scope.checkAccount();
                 localStorage.rAccount = $scope.rData.account;
-
+                if(argType!=='account'){
+                    return -1;
+                }
                 //password
                 if (!argData.password) {
                     $scope.msg.password = '请输入密码';
@@ -74,9 +76,15 @@ directiveSso.directive('registerSso', function() {
                     $scope.msg.password = '密码至少6位';
                     return -1;
                 }
+                if(argType!=='password'){
+                    return -1;
+                }
                 if (argData.password !== argData.rePassword) {
                     argData.password = argData.rePassword = '';
                     return '两次密码不一置！';
+                }
+                if(argType!=='rePassword'){
+                    return -1;
                 }
                 return 0;
             };
