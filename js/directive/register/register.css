@@ -4,8 +4,16 @@
   min-height: 300px;
 }
 
-.register-sso .b-gray, .register-sso .input-1, .register-sso .input-2 {
+.register-sso .b-gray, .register-sso .input-1, .register-sso .input-2, .register-sso .tip {
   border: 1px solid #ccc;
+}
+
+.register-sso .b-red {
+  border: 1px solid red;
+}
+
+.register-sso .b-err, .register-sso .tip-err {
+  border: 1px solid #ffb2b2;
 }
 
 .register-sso .title {
@@ -67,6 +75,7 @@
 }
 
 .register-sso .btn {
+  background: #348df1;
   background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
   color: #fff;
   box-shadow: none;
@@ -90,4 +99,26 @@
 
 .register-sso .center {
   text-align: center;
+}
+
+.register-sso .tip {
+  left: 0;
+  position: absolute;
+  top: 31px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: -1px;
+  width: 100%;
+  white-space: normal;
+  background: #f2f2f2;
+  z-index: 10;
+}
+
+.register-sso .tip span {
+  margin-left: 10px;
+}
+
+.register-sso .tip-err {
+  background-color: #fff2f2;
+  color: #ff3333;
 }

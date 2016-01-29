@@ -5,6 +5,12 @@
     .b-gray {
         border: 1px solid #ccc;
     }
+    .b-red {
+        border: 1px solid red;
+    }
+    .b-err {
+        border: 1px solid #ffb2b2;
+    }
     .title {
         color: #fff;
         text-align: center;
@@ -47,7 +53,7 @@
     }
     .input {
         line-height: 30px;
-        height: 30px;        
+        height: 30px;
     }
     .input-1 {
         @extend .b-gray;
@@ -58,6 +64,7 @@
         background: #fff url(common_icon.png) no-repeat 10px -1119px;
     }
     .btn {
+        background: #348df1;
         background: -webkit-linear-gradient(90deg, #1e71ce, #389eed);
         color: #fff;
         box-shadow: none;
@@ -76,7 +83,28 @@
         font-size: 23px;
         line-height: 55px;
     }
-    .center{
+    .center {
         text-align: center;
+    }
+    .tip {
+        left: 0;
+        position: absolute;
+        top: 31px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: -1px;
+        width: 100%;
+        white-space: normal;
+        background: #f2f2f2;
+        z-index: 10;
+        @extend .b-gray;
+        span {
+            margin-left: 10px;
+        }
+    }
+    .tip-err {
+        @extend .b-err;
+        background-color: #fff2f2;
+        color: #ff3333;
     }
 }

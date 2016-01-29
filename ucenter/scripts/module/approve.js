@@ -1,6 +1,29 @@
 
 
 function RealNameAuth($scope) {
+	$scope.logoutR = function() {
+	    var url_t = getUrl("url");
+	    try {
+	        WB2.logout(function() {
+	            //alert("logOut");
+	        });
+	        QC.Login.signOut();
+	    } catch (e) {};
+
+
+	    localStorage.token = '';
+	    if (url_t == '') {
+	        window.location.href = ssoUrl + "/sso/api/logout?url=http://"+location.host+"/sso/";
+	        return;
+	    };
+	    var url = decodeURIComponent(url_t);
+	    var pattern = /^(http:\/\/)?([^\/]+)/i;
+	    var mts = pattern.exec(url);
+	    if (mts != null) {
+	        console.log(mts[0]);
+	        window.location.href = "/sso/api/logout?url=" + encodeURIComponent(mts[0]);
+	    }
+	};
 $('.up-btn-box').mouseenter(function() {
 		// this.style.display = 'none';
 		console.log('abc');
@@ -31,8 +54,9 @@ $('.up-btn-box').mouseenter(function() {
 
 	$.ajax({
 		type: "post",
-		url: '/ucenter/api/t/findUser',
+		url: ssoUrl+'ucenter/api/t/findUser',
 		dataType: 'json',
+		data:{token:getToken()},
 		success: function(result) {
 			if (result.code == 0) {
 				$scope.username = result.data.usr;
@@ -252,9 +276,10 @@ $('.up-btn-box').mouseenter(function() {
 			var url = "?I_NAME=" + $scope.realName + "&I_IDCARD=" + $scope.idCardNo + "&I_IDFRONTIMG=" + $scope.positiveImg + "&I_IDBACKIMG=" + $scope.backImg +"&I_HANDIMG="+$scope.handImg +"&I_IDEXPIRETIME=" + $scope.expire + "&I_ADDR=" + $scope.addr + "&I_STATUS='  ' ";
 			// alert(url);
 			$.ajax({
-				url: '/ucenter/api/t/submitApprove' + url,
+				url: ssoUrl+'ucenter/api/t/submitApprove' + url,
 				type: 'post',
 				dataType: 'json',
+				data:{token:getToken()},
 				success: function(result) {
 					if (result.code == 0) {
 						// alert("提交成功");

@@ -9,8 +9,16 @@
   width: 100%;
 }
 
-.login-sso .b-gray, .login-sso .input, .login-sso .input-1, .login-sso .input-2 {
+.login-sso .b-gray, .login-sso .input, .login-sso .input-1, .login-sso .input-2, .login-sso .tip {
   border: 1px solid #ccc;
+}
+
+.login-sso .b-red {
+  border: 1px solid red;
+}
+
+.login-sso .b-err, .login-sso .tip-err {
+  border: 1px solid #ffb2b2;
 }
 
 .login-sso .blue-c {
@@ -20,7 +28,7 @@
 .login-sso .input, .login-sso .input-1, .login-sso .input-2 {
   height: 30px;
   margin-top: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .login-sso .input-1 {
@@ -36,7 +44,7 @@
 }
 
 .login-sso .main input {
-  width: 200px;
+  width: 80%;
   height: 20px;
   line-height: 20px;
   font-size: 15px;
@@ -48,6 +56,7 @@
 }
 
 .login-sso .btn {
+  background: #348df1;
   background: -moz-linear-gradient(left, #1e71ce, #389eed);
   background: -o-linear-gradient(left, #1e71ce, #389eed);
   background: linear-gradient(90deg, #1e71ce, #389eed);
@@ -75,6 +84,28 @@
 
 .login-sso .list {
   line-height: 50px;
+}
+
+.login-sso .tip {
+  left: 0;
+  position: absolute;
+  top: 31px;
+  height: 30px;
+  line-height: 30px;
+  margin-left: -1px;
+  width: 100%;
+  white-space: normal;
+  background: #f2f2f2;
+  z-index: 10;
+}
+
+.login-sso .tip span {
+  margin-left: 10px;
+}
+
+.login-sso .tip-err {
+  background-color: #fff2f2;
+  color: #ff3333;
 }
 
 @media screen and (max-width: 1240px) {

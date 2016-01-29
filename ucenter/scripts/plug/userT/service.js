@@ -1,11 +1,11 @@
 
 angular.module('UsrService', ['ngResource']).factory('UsrService', function($resource){
     return {
-        GetInfo:$resource('/ucenter/api/t/selfinfo'),
-        GetUserT:$resource("/ucenter/api/t/listUAttrT"),
-        SaveUserAttr:$resource("/ucenter/api/t/updateUserAttr"),
-        SavePwd:$resource('/ucenter/api/t/updateUser'),
-        GetAdduattr:$resource('/ucenter/api/t/adduattr'),
-        GetCtree:$resource('/ucenter/api/t/ctree')
+        GetInfo:$resource(ssoUrl+'ucenter/api/t/selfinfo'),
+        GetUserT:$resource(ssoUrl+'ucenter/api/t/listUAttrT'),
+        SaveUserAttr:$resource(ssoUrl+'ucenter/api/t/updateUserAttr'),
+        SavePwd:$resource(ssoUrl+'ucenter/api/t/updateUser'),
+        GetAdduattr:$resource(ssoUrl+'ucenter/api/t/adduattr'),
+        GetCtree:$resource(ssoUrl+'ucenter/api/t/ctree')
     };
 });

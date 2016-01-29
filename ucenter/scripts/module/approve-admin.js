@@ -8,11 +8,37 @@ function ApproveAdmin($scope) {
 	$scope.status = ""
 	$scope.username= "";
 
+	$scope.logoutR = function() {
+	    var url_t = getUrl("url");
+	    try {
+	        WB2.logout(function() {
+	            //alert("logOut");
+	        });
+	        QC.Login.signOut();
+	    } catch (e) {};
+
+
+	    // clearCookie();
+	    localStorage.token = '';
+	    if (url_t == '') {
+	        window.location.href = ssoUrl + "/sso/api/logout?url=http://"+location.host+"/sso/";
+	        return;
+	    };
+	    var url = decodeURIComponent(url_t);
+	    var pattern = /^(http:\/\/)?([^\/]+)/i;
+	    var mts = pattern.exec(url);
+	    if (mts != null) {
+	        console.log(mts[0]);
+	        window.location.href = "/sso/api/logout?url=" + encodeURIComponent(mts[0]);
+	    }
+	};
+
 	$scope.loadUser = function(){
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/findUser',
+			url: ssoUrl+'ucenter/api/t/findUser',
 			dataType: 'json',
+			data:{token:getToken()},
 			success: function(result) {
 				if (result.code == 0) {
 					$scope.username = result.data.usr;
@@ -38,13 +64,14 @@ function ApproveAdmin($scope) {
 		};
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/listApprove',
+			url: ssoUrl+'ucenter/api/t/listApprove',
 			data: {
 				pageNo: pageno + 1,
 				pageSize: pagesize,
 				status: status,
 				timeFrom: timeFrom,
 				timeTo: timeTo,
+				token:getToken(),
 				usr: usr
 			},
 			dataType: 'json',
@@ -97,13 +124,14 @@ function ApproveAdmin($scope) {
 		};
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/listApprove',
+			url: ssoUrl+'ucenter/api/t/listApprove',
 			data: {
 				pageSize: pagesize,
 				pageNo: pageno + 1,
 				status: status,
 				timeFrom: timeFrom,
 				timeTo: timeTo,
+				token:getToken(),
 				usr: usr
 			},
 			dataType: 'json',

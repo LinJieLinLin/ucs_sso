@@ -1,21 +1,27 @@
-<section class="login-sso">
+<section class="login-sso" ng-keydown="keydown()">
     <form name="login" class="main">
         <label for="account">
             <div>用户名/邮箱</div>
-            <div class="input-1">
-                <input type="text" placeholder="邮箱/用户名/手机号" id="account" value="" maxlength="20" ng-model="lData.account" ng-blur="checkLoginSso(lData)" required>
+            <div class="input-1" ng-class="{'b-red':msg.account&&!focus.account}">
+                <input type="text" placeholder="邮箱/用户名/手机号" id="account" value="" maxlength="20" ng-model="lData.account" ng-focus="focus.account=1;"  ng-blur="checkLoginSso(lData)" autofocus required>
+                <div class="tip tip-err" ng-class="c.tip.class" ng-show="msg.account&&!focus.account">
+                    <span>{{msg.account}}</span>
+                </div>
             </div>
         </label>
         <label for="pwd">
             <div>密码</div>
-            <div class="input-2">
-                <input type="password" placeholder="密码" id="pwd" value="" maxlength="20" ng-model="lData.password" required>
+            <div class="input-2" ng-class="{'b-red':msg.password&&!focus.password}">
+                <input type="password" placeholder="密码" id="pwd" value="" maxlength="20" ng-model="lData.password" ng-focus="focus.password=1;" ng-blur="checkLoginSso(lData)" required>
+                <div class="tip tip-err" ng-class="c.tip.class" ng-show="msg.password&&!focus.password">
+                    <span>{{msg.password}}</span>
+                </div>
             </div>
         </label>
         <div class="list">
             <a class="blue-c" id="register" ng-click="register()">免费注册</a>
         </div>
-        <div >
+        <div>
             <a class="btn btn-full" id="login" ng-click="loginSso()">{{loginText}}</a>
         </div>
     </form>

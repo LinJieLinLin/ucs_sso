@@ -1,23 +1,32 @@
-<section class="register-sso">
+<section class="register-sso" ng-keydown="keydown()">
     <div>
         <div class="title">请填写基本信息</div>
         <form name="register">
             <label for="account">
                 <div>帐户名:</div>
-                <div class="input-1">
-                    <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="rData.account" ng-blur="checkRegisterSso(rData)" required>
+                <div class="input-1" ng-class="{'b-red':msg.account&&!focus.account}">
+                    <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="rData.account" ng-focus="focus.account=1;" ng-blur="checkRegisterSso(rData,'a')" autofocus required>
+                    <div class="tip tip-err" ng-class="c.tip.class" ng-show="msg.account&&!focus.account">
+                        <span>{{msg.account}}</span>
+                    </div>
                 </div>
             </label>
             <label for="pwd">
                 <div>设置密码:</div>
-                <div class="input-2">
-                    <input type="password" placeholder="6-20位字母、数字或符号" id="pwd" maxlength="20" ng-model="rData.password" required>
+                <div class="input-2" ng-class="{'b-red':msg.password&&!focus.password}">
+                    <input type="password" placeholder="6-20位字母、数字或符号" id="pwd" maxlength="20" ng-model="rData.password" ng-focus="focus.password=1;" ng-blur="checkRegisterSso(rData,'p')" required>
+                    <div class="tip tip-err" ng-class="c.tip.class" ng-show="msg.password&&!focus.password">
+                        <span>{{msg.password}}</span>
+                    </div>
                 </div>
             </label>
             <label for="repwd">
                 <div>确认密码:</div>
-                <div class="input-2">
-                    <input type="password" placeholder="重复密码" id="repwd" maxlength="20" ng-model="rData.rePassword" required>
+                <div class="input-2" ng-class="{'b-red':msg.rePassword&&!focus.rePassword}">
+                    <input type="password" placeholder="重复密码" id="repwd" maxlength="20" ng-model="rData.rePassword" ng-focus="focus.rePassword=1;" ng-blur="checkRegisterSso(rData,'r')" required>
+                    <div class="tip tip-err" ng-class="c.tip.class" ng-show="msg.rePassword&&!focus.rePassword">
+                        <span>{{msg.rePassword}}</span>
+                    </div>
                 </div>
             </label>
             <div class="center">

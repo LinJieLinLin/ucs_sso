@@ -51,8 +51,9 @@ function logoutR() {
 
 	
 	clearCookie();
+	localStorage.token = '';
 	if (url_t == '') {
-		window.location.href = "/sso/api/logout?url=/sso/login.html";
+	    window.location.href = ssoUrl + "/sso/api/logout?url=http://"+location.host+"/sso/";
 		return;
 	};
 	var url = decodeURIComponent(url_t);

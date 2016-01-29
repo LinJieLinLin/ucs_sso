@@ -9,7 +9,7 @@
     return {
         GetAdduattr:function () {
             var deferred = $q.defer();
-            UsrService.GetAdduattr.get({},function (rs) {
+            UsrService.GetAdduattr.get({token:getToken()},function (rs) {
                 if(rs.code===0){
                     var arr = [];
                     angular.forEach(rs.data, function(value, key){
@@ -23,7 +23,7 @@
         },        
         GetUserTData:function(gno){
             var deferred = $q.defer();
-            UsrService.GetUserT.get({gno:gno},function  (rs) {
+            UsrService.GetUserT.get({gno:gno,token:getToken()},function  (rs) {
                 if(rs.code===0){
                     return deferred.resolve(rs.data);
                 }else{
@@ -60,7 +60,7 @@
         GetCompileList:function (grpNo,attrs) {
             var _this = this;
             var deferred = $q.defer();
-            this.GetAdduattr().then(function () {
+            this.GetAdduattr({token:getToken()}).then(function () {
                 _this.GetUserTData(grpNo).then(function (rs) {
                   var result =  _this.CompileT(rs,attrs);
                   return deferred.resolve(result);
@@ -227,7 +227,7 @@ module.controller('userCtrl',function($scope,$log,UsrService,UsrCompileService,$
     //获取用户信息
     $scope.getUserInfo = function(){
         var deferred = $q.defer();
-        UsrService.GetInfo.get({},function(rs){
+        UsrService.GetInfo.get({token:getToken()},function(rs){
             if(rs.code===0){
                 $scope.user.name = rs.data.usr;
                 $scope.user.id = rs.data.tid;

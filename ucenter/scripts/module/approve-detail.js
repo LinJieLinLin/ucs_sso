@@ -1,5 +1,27 @@
 function ApproveDetail($scope) {
+	$scope.logoutR = function() {
+	    var url_t = getUrl("url");
+	    try {
+	        WB2.logout(function() {
+	            //alert("logOut");
+	        });
+	        QC.Login.signOut();
+	    } catch (e) {};
 
+
+	    localStorage.token = '';
+	    if (url_t == '') {
+	        window.location.href = ssoUrl + "/sso/api/logout?url=http://"+location.host+"/sso/";
+	        return;
+	    };
+	    var url = decodeURIComponent(url_t);
+	    var pattern = /^(http:\/\/)?([^\/]+)/i;
+	    var mts = pattern.exec(url);
+	    if (mts != null) {
+	        console.log(mts[0]);
+	        window.location.href = "/sso/api/logout?url=" + encodeURIComponent(mts[0]);
+	    }
+	};
 	$scope.userInf = {
 		I_NAME:'未填写',
 		I_SCHOOL:'未填写',
@@ -28,8 +50,9 @@ function ApproveDetail($scope) {
 		$scope.aid = getParameterByName('aid');
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/findUser',
+			url: ssoUrl+'ucenter/api/t/findUser',
 			data: {
+				token:getToken(),
 				uid: uid
 			},
 			dataType: 'json',
@@ -80,11 +103,12 @@ function ApproveDetail($scope) {
 	$scope.pass = function() {
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/updateApprove',
+			url: ssoUrl+'ucenter/api/t/updateApprove',
 			data: {
 				uid: $scope.uid,
 				aid: $scope.aid,
 				status: 'N',
+				token:getToken(),
 				msg: "  "
 			},
 			dataType: 'json',
@@ -106,11 +130,12 @@ function ApproveDetail($scope) {
 	$scope.reject = function() {
 		$.ajax({
 			type: "post",
-			url: '/ucenter/api/t/updateApprove',
+			url: ssoUrl+'ucenter/api/t/updateApprove',
 			data: {
 				uid: $scope.uid,
 				aid: $scope.aid,
 				status: 'R',
+				token:getToken(),
 				msg: "  "
 			},
 			dataType: 'json',

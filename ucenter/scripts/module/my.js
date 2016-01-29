@@ -4,7 +4,7 @@
 
 	$scope.initloadAttr = function() {
 		$.ajax({
-			url: '/ucenter/api/t/listUAttrT?gno=1',
+			url: ssoUrl+'ucenter/api/t/listUAttrT?gno=1',
 			type: 'post',
 			dataType: 'json',
 			success: function(result) {
@@ -24,7 +24,7 @@
 
 	$scope.initAdditionAttr = function() {
 		$.ajax({
-			url: '/ucenter/api/t/adduattr',
+			url: ssoUrl+'ucenter/api/t/adduattr',
 			type: 'post',
 			dataType: 'json',
 			success: function(result) {
@@ -54,7 +54,7 @@
 	$scope.initloadUser = function() {
 		// alert(99);
 		$.ajax({
-			url: '/ucenter/api/t/selfinfo',
+			url: ssoUrl+'ucenter/api/t/selfinfo',
 			type: 'post',
 			dataType: 'json',
 			success: function(result) {
@@ -318,7 +318,7 @@
 		console.log("init");
 		console.log(selectid + "     " + r_name);
 		var opts = {
-			ajax: '/ucenter/api/ctree?key=' + r_name,
+			ajax: ssoUrl+'ucenter/api/ctree?key=' + r_name,
 			selStyle: 'margin-left: 3px;',
 			select: "#" + selectid,
 		};
@@ -350,7 +350,7 @@
 			};
 			console.log(lastUrl);
 			$.ajax({
-				url: '/ucenter/api/t/updateUserAttr' + lastUrl,
+				url: ssoUrl+'ucenter/api/t/updateUserAttr' + lastUrl,
 				type: 'get',
 				dataType: 'json',
 				success: function(result) {
@@ -445,7 +445,7 @@
 		if ($scope.checkNowPwd($scope.nowpwd) && $scope.checkNewPwd1($scope.newpwd1) && $scope.checkNewPwdEqual($scope.newpwd1, $scope.newpwd2)) {
 			console.log("submit");
 			$.ajax({
-				url: '/ucenter/api/t/updateUser',
+				url: ssoUrl+'ucenter/api/t/updateUser',
 				type: 'post',
 				data: {
 					oldPwd: $scope.nowpwd,
@@ -487,7 +487,7 @@
 		};
 		$("#email-error").css("display", "none");
 		$.ajax({
-			url: '/ucenter/api/t/sendEmail?email=' + $scope.email,
+			url: ssoUrl+'ucenter/api/t/sendEmail?email=' + $scope.email,
 			type: 'post',
 			dataType: 'json',
 			success: function(result) {
@@ -549,7 +549,7 @@
 		$scope.changeMenuHiddenValue(type, index, obj);
 
 		$.ajax({
-			url: '/ucenter/api/t/ctree?key=' + type + '&id=' + x,
+			url: ssoUrl+'ucenter/api/t/ctree?key=' + type + '&id=' + x,
 			type: 'post',
 			dataType: 'json',
 			success: function(result) {

@@ -9,6 +9,12 @@
     .b-gray {
         border: 1px solid #ccc;
     }
+    .b-red {
+        border: 1px solid red;
+    }
+    .b-err {
+        border: 1px solid #ffb2b2;
+    }
     .blue-c {
         color: #0095CE;
     }
@@ -16,7 +22,7 @@
         @extend .b-gray;
         height: 30px;
         margin-top: 8px;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
     }
     .input-1 {
         @extend .input;
@@ -29,7 +35,7 @@
     .main {
         padding: 8% 16%;
         input {
-            width: 200px;
+            width: 80%;
             height: 20px;
             line-height: 20px;
             font-size: 15px;
@@ -41,6 +47,7 @@
         }
     }
     .btn {
+        background: #348df1;
         background: linear-gradient(90deg, #1e71ce, #389eed);
         color: #fff;
         box-shadow: none;
@@ -61,6 +68,27 @@
     }
     .list {
         line-height: 50px;
+    }
+    .tip {
+        left: 0;
+        position: absolute;
+        top: 31px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: -1px;
+        width: 100%;
+        white-space: normal;
+        background: #f2f2f2;
+        z-index: 10;
+        @extend .b-gray;
+        span {
+            margin-left: 10px;
+        }
+    }
+    .tip-err {
+        @extend .b-err;
+        background-color: #fff2f2;
+        color: #ff3333;
     }
 }
 

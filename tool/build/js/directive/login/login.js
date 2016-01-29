@@ -12,30 +12,54 @@ directiveSso.directive('loginSso', function() {
         replace: true,
         transclude: true,
         scope: {
-            a: '='
+            c: '='
         },
-        controller: function($scope, $timeout, $http, request) {
-            var rootUrl = 'http://localhost:7700/';
-            $scope.loginText = '登录';
+        controller: function($scope, $timeout, $http, request, $element) {
+            var ssoUrl = 'http://localhost:7700/';
             $scope.lData = {};
-            if (localStorage.account) {
-                $scope.lData.account = localStorage.account;
-            }
+            $scope.msg = {};
+            $scope.focus = {};
+            //初始化
+            $scope.init = function() {
+                if (ssoUrl[ssoUrl.length - 1] !== '/') {
+                    ssoUrl += '/';
+                }
+                $scope.loginText = '登录';
+                if (localStorage.account) {
+                    $scope.lData.account = localStorage.account;
+                }                
+            };
+            $scope.init();
 
+            //回车检测
+            $scope.keydown = function(event) {
+                e = event ? event : (window.event ? window.event : null);
+                if (e.keyCode == 13) {
+                    $scope.loginSso();
+                }
+            };
             //检测用户数据
             $scope.checkLoginSso = function(argData) {
+                $scope.focus = {};
+                $scope.msg = {};
                 var msg = '填写数据有误！';
                 try {
                     argData.account = $('#account').val();
                     argData.password = $('#pwd').val();
                 } catch (e) {}
                 if (!argData.account) {
+                    $scope.msg.account = '请输入邮箱/用户名/已验证手机';
                     return -1;
                 }
                 localStorage.account = $scope.lData.account;
 
                 //password
                 if (!argData.password) {
+                    $scope.msg.password = '请输入密码';
+                    return -1;
+                }
+                if (argData.password.length < 6) {
+                    $scope.msg.password = '密码至少6位';
                     return -1;
                 }
                 return 0;
@@ -57,11 +81,11 @@ directiveSso.directive('loginSso', function() {
                 if ($scope.loginText !== '登录') {
                     return;
                 }
+                //显示提示
                 var msg = $scope.checkLoginSso($scope.lData);
                 if (msg === -1) {
                     return;
-                }
-                if (msg !== 0) {
+                }else if (msg !== 0) {
                     try {
                         binApp.alert(msg, {
                             action: 'top'
@@ -71,13 +95,14 @@ directiveSso.directive('loginSso', function() {
                     }
                     return;
                 }
+                
                 var data = {
                     usr: $scope.lData.account,
                     pwd: $scope.lData.password
                 };
                 var option = {
                     method: 'GET',
-                    url: rootUrl + 'sso/api/login?time=' + new Date().getTime(),
+                    url: ssoUrl + 'sso/api/login?time=' + new Date().getTime(),
                     params: data
                 };
                 $scope.loginText = '正在登录...';
@@ -93,7 +118,7 @@ directiveSso.directive('loginSso', function() {
                         return;
                     }
                     if (url === '') {
-                        window.location.href = rootUrl + '/ucenter/my.html?token=' + rs.data.token;
+                        window.location.href = 'ucenter/my.html?token=' + rs.data.token;
                         return;
                     }
                     var urlArr = url.split('#');

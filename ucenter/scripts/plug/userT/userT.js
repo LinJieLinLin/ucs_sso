@@ -109,7 +109,7 @@ module.directive('userMultiSelect', function(){
 			$scope.selectList = [];
 			// 获取级联数据
 			$scope.getCasCadeData = function(pid) {				
-				return $http.post('/ucenter/api/t/ctree', {key:$scope.key,id:pid});
+				return $http.post(ssoUrl+'ucenter/api/t/ctree', {key:$scope.key,id:pid});
 			};
 			//清除下拉数组
 			$scope.clearSelect = function(index) {
