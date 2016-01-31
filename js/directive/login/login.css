@@ -17,6 +17,10 @@
   border: 1px solid red;
 }
 
+.login-sso .b-blue {
+  border: 1px solid #57a2d8;
+}
+
 .login-sso .b-err, .login-sso .tip-err {
   border: 1px solid #ffb2b2;
 }
@@ -29,6 +33,7 @@
   height: 30px;
   margin-top: 8px;
   margin-bottom: 30px;
+  width: auto;
 }
 
 .login-sso .input-1 {
@@ -40,7 +45,8 @@
 }
 
 .login-sso .main {
-  padding: 8% 16%;
+  padding: 7% 16%;
+  width: auto;
 }
 
 .login-sso .main input {

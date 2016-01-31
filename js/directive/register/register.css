@@ -12,6 +12,10 @@
   border: 1px solid red;
 }
 
+.register-sso .b-blue {
+  border: 1px solid #57a2d8;
+}
+
 .register-sso .b-err, .register-sso .tip-err {
   border: 1px solid #ffb2b2;
 }
@@ -27,10 +31,14 @@
   margin-bottom: 30px;
 }
 
+.register-sso form {
+  margin-bottom: 40px;
+}
+
 .register-sso label {
   display: block;
   margin-top: 8px;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 }
 
 .register-sso label div {

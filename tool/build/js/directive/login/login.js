@@ -19,6 +19,7 @@ directiveSso.directive('loginSso', function() {
             $scope.lData = {};
             $scope.msg = {};
             $scope.focus = {};
+            $scope.regExp = {};
             //初始化
             $scope.init = function() {
                 if (ssoUrl[ssoUrl.length - 1] !== '/') {
@@ -27,7 +28,7 @@ directiveSso.directive('loginSso', function() {
                 $scope.loginText = '登录';
                 if (localStorage.account) {
                     $scope.lData.account = localStorage.account;
-                }                
+                }
             };
             $scope.init();
 
@@ -38,22 +39,27 @@ directiveSso.directive('loginSso', function() {
                     $scope.loginSso();
                 }
             };
+            //选中时
+            $scope.checkFocus = function(argType) {
+                $scope.focus[argType] = 1;
+            };
             //检测用户数据
-            $scope.checkLoginSso = function(argData) {
-                $scope.focus = {};
-                $scope.msg = {};
-                var msg = '填写数据有误！';
+            $scope.checkFunc = {};
+            $scope.checkFunc.account = function(argData) {
                 try {
-                    argData.account = $('#account').val();
-                    argData.password = $('#pwd').val();
+                    if ($('#account').attr('placeholder') != $('#account').val()) {
+                        argData.account = $('#account').val();
+                        argData.password = $('#pwd').val();
+                    }
                 } catch (e) {}
                 if (!argData.account) {
                     $scope.msg.account = '请输入邮箱/用户名/已验证手机';
                     return -1;
                 }
                 localStorage.account = $scope.lData.account;
-
-                //password
+                return 0;
+            };
+            $scope.checkFunc.password = function(argData) {
                 if (!argData.password) {
                     $scope.msg.password = '请输入密码';
                     return -1;
@@ -63,6 +69,25 @@ directiveSso.directive('loginSso', function() {
                     return -1;
                 }
                 return 0;
+            };
+            $scope.checkLoginSso = function(argData, argType) {
+                $scope.focus = {};
+                $scope.msg = {};
+                var msg = '填写数据有误！';
+                if (argType) {
+                    try {
+                        return $scope.checkFunc[argType](argData);
+                    } catch (e) {
+                        return 0;
+                    }
+                } else {
+                    for (var k in $scope.checkFunc) {
+                        if ($scope.checkFunc[k](argData)) {
+                            return $scope.checkFunc[k](argData);
+                        }
+                    }
+                    return 0;
+                }
             };
             //获取URL参数
             var getUrl = function(name) {
@@ -85,7 +110,7 @@ directiveSso.directive('loginSso', function() {
                 var msg = $scope.checkLoginSso($scope.lData);
                 if (msg === -1) {
                     return;
-                }else if (msg !== 0) {
+                } else if (msg !== 0) {
                     try {
                         binApp.alert(msg, {
                             action: 'top'
@@ -95,7 +120,7 @@ directiveSso.directive('loginSso', function() {
                     }
                     return;
                 }
-                
+
                 var data = {
                     usr: $scope.lData.account,
                     pwd: $scope.lData.password

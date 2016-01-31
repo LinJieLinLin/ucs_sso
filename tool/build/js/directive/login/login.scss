@@ -12,6 +12,9 @@
     .b-red {
         border: 1px solid red;
     }
+    .b-blue{
+        border: 1px solid rgb(87, 162, 216);
+    }
     .b-err {
         border: 1px solid #ffb2b2;
     }
@@ -23,6 +26,7 @@
         height: 30px;
         margin-top: 8px;
         margin-bottom: 30px;
+        width: auto;
     }
     .input-1 {
         @extend .input;
@@ -33,7 +37,8 @@
         background: #fff url(common_icon.png) no-repeat 10px -1119px;
     }
     .main {
-        padding: 8% 16%;
+        padding: 7% 16%;
+        width: auto;
         input {
             width: 80%;
             height: 20px;

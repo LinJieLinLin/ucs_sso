@@ -37,6 +37,10 @@ directiveSso.directive('registerSso', function() {
                     $scope.registerSso();
                 }
             };
+            //选中时
+            $scope.checkFocus = function(argType) {
+                $scope.focus[argType] = 1;
+            };
             //检测用户名是否存在
             $scope.checkAccount = function() {
                 var data = {
@@ -54,20 +58,20 @@ directiveSso.directive('registerSso', function() {
                 });
             };
             //检测用户数据
-            $scope.checkRegisterSso = function(argData,argType) {
-                $scope.focus = {};
-                $scope.msg = {};
-                var msg = '填写数据有误！';
+            $scope.checkFunc = {};
+            $scope.checkFunc.account = function(argData) {
+                try {
+                    argData.account = $('#account').val();
+                } catch (e) {}
                 if (!argData.account) {
                     $scope.msg.account = '请输入邮箱/用户名/已验证手机';
                     return -1;
                 }
                 $scope.checkAccount();
                 localStorage.rAccount = $scope.rData.account;
-                if(argType!=='account'){
-                    return -1;
-                }
-                //password
+                return 0;
+            };
+            $scope.checkFunc.password = function(argData) {
                 if (!argData.password) {
                     $scope.msg.password = '请输入密码';
                     return -1;
@@ -76,17 +80,33 @@ directiveSso.directive('registerSso', function() {
                     $scope.msg.password = '密码至少6位';
                     return -1;
                 }
-                if(argType!=='password'){
-                    return -1;
-                }
+                return 0;
+            };
+            $scope.checkFunc.rePassword = function(argData) {
                 if (argData.password !== argData.rePassword) {
-                    argData.password = argData.rePassword = '';
-                    return '两次密码不一置！';
-                }
-                if(argType!=='rePassword'){
-                    return -1;
+                    $scope.msg.rePassword = '两次密码不一致！';
+                    return '两次密码不一致！';
                 }
                 return 0;
+            };
+            $scope.checkRegisterSso = function(argData, argType) {
+                $scope.focus = {};
+                $scope.msg = {};
+                var msg = '填写数据有误！';
+                if (argType) {
+                    try {
+                        return $scope.checkFunc[argType](argData);
+                    } catch (e) {
+                        return 0;
+                    }
+                } else {
+                    for (var k in $scope.checkFunc) {
+                        if ($scope.checkFunc[k](argData)) {
+                            return $scope.checkFunc[k](argData);
+                        }
+                    }
+                    return 0;
+                }
             };
             //获取URL参数
             var getUrl = function(name) {

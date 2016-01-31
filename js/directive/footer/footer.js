@@ -14,7 +14,7 @@ directiveSso.directive('footerSso', function() {
         scope: {
             a: '='
         },
-        controller: function($scope, $timeout, $http) {
+        controller: ['$scope', '$timeout', '$http', function($scope, $timeout, $http) {
             $scope.bSn = '粤ICP备05139291号-4';
             $scope.year = new Date().getFullYear();
 
@@ -25,6 +25,6 @@ directiveSso.directive('footerSso', function() {
                     });
                 } catch (e) {}
             };
-        }
+        }]
     };
 });

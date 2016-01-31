@@ -18,9 +18,10 @@
     <!-- lib -->
     <script src="../jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="../angular/angular.min.js" type="text/javascript"></script>
+    <script src="../angular-placeholder-ie/placeholder-ie.js" type="text/javascript"></script>
     <!-- js -->
     <script src="js/common/common.js" type="text/javascript"></script>
-    <script src="js/login/login.js" type="text/javascript"></script>
+    <script src="js/main/main.js" type="text/javascript"></script>
     <!-- directive -->
     <link href="js/directive/footer/footer.css" rel="stylesheet" type="text/css" />
     <script src="js/directive/footer/footer.js" type="text/javascript"></script>
@@ -28,7 +29,7 @@
     <script src="js/directive/login/login.js" type="text/javascript"></script>
 </head>
 
-<body ng-controller="loginCtrl" class="gray-bg">
+<body ng-controller="mainCtrl" class="gray-bg">
     <section class="g-w-mid login-head">
         <span>用户登录</span><span>|</span>
         <span>User Login</span>
@@ -45,7 +46,7 @@
         </div>
     </section>
     <section class="g-w-mid">
-        <footer-sso a='hi'></footer-sso>
+        <footer-sso></footer-sso>
     </section>
 </body>
 
