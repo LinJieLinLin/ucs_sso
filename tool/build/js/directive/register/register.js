@@ -19,8 +19,30 @@ directiveSso.directive('registerSso', function() {
             $scope.rData = {};
             $scope.msg = {};
             $scope.focus = {};
+            $scope.regExp = {
+                account: /^[a-zA-Z0-9_\u4e00-\u9fa5]{2,50}$/,
+                email: /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/,
+                tel: /^1[3|4|5|7|8][0-9]\d{8}$/,
+                id: /(^\d{15}$)|(^\d{17}([0-9]|X)$)/
+            };
+
+            //初始化请求
+            $scope.initUrl = function() {
+                $scope.requestUrl = {
+                    register: ssoUrl + 'sso/api/create',
+                    eg: ssoUrl + 'api'
+                };
+            };
+            //读取config
+            $scope.readConfig = function(argType) {
+                try {
+                    var c = DYCONFIG[argType];
+                    ssoUrl = c.rootUrl;
+                } catch (e) {}
+            };
             //初始化
             $scope.init = function() {
+                $scope.readConfig('sso');
                 if (ssoUrl[ssoUrl.length - 1] !== '/') {
                     ssoUrl += '/';
                 }
@@ -28,6 +50,7 @@ directiveSso.directive('registerSso', function() {
                 if (localStorage.rAccount) {
                     $scope.rData.account = localStorage.rAccount;
                 }
+                $scope.initUrl();
             };
             $scope.init();
             //回车检测
@@ -43,6 +66,7 @@ directiveSso.directive('registerSso', function() {
             };
             //检测用户名是否存在
             $scope.checkAccount = function() {
+                return
                 var data = {
                     usr: $scope.rData.account
                 };
@@ -64,7 +88,23 @@ directiveSso.directive('registerSso', function() {
                     argData.account = $('#account').val();
                 } catch (e) {}
                 if (!argData.account) {
-                    $scope.msg.account = '请输入邮箱/用户名/已验证手机';
+                    $scope.msg.account = '请输入邮箱/用户名/手机号';
+                    return -1;
+                }
+                var msg = '数据有误，请重新输入';
+                if ($scope.regExp.email.test(argData.account)) {
+                    argData.email = argData.account;
+                    msg = '';
+                }
+                if ($scope.regExp.tel.test(argData.account)) {
+                    argData.tel = argData.account;
+                    msg = '';
+                }
+                if ($scope.regExp.account.test(argData.account)) {
+                    msg = '';
+                }
+                $scope.msg.account = msg;
+                if ($scope.msg.account) {
                     return -1;
                 }
                 $scope.checkAccount();
@@ -136,13 +176,23 @@ directiveSso.directive('registerSso', function() {
                     return;
                 }
                 var data = {
-                    usr: $scope.rData.account,
-                    pwd: $scope.rData.password
+                    usr: [$scope.rData.account],
+                    pwd: $scope.rData.password,
+                    attrs: {
+                        basic: {
+                            email: $scope.rData.email || '',
+                            phone: $scope.rData.tel || ''
+                        }
+                    },
                 };
+
                 var option = {
-                    method: 'GET',
-                    url: ssoUrl + 'ucenter/api/addUser',
-                    params: data
+                    method: 'POST',
+                    url: $scope.requestUrl.register,
+                    data: angular.toJson(data),
+                    params: {
+                        login: 1
+                    }
                 };
                 $scope.registerText = '正在注册...';
                 request(option).then(function(rs) {
@@ -152,7 +202,10 @@ directiveSso.directive('registerSso', function() {
                     $scope.registerText = '注册';
                     $scope.rData.password = '';
                     $scope.rData.rePassword = '';
-
+                    $scope.rData.email = '';
+                    $scope.rData.tel = '';
+                    localStorage.account = $scope.rData.rAccount;
+                    localStorage.rAccount = '';
                     var url = getUrl('url');
                     var userInfo = rs.data.usr;
                     if (userInfo.BAttr && userInfo.BAttr.HELP && userInfo.BAttr.HELP[0] && userInfo.BAttr.HELP[0].val == 1) {
@@ -177,8 +230,22 @@ directiveSso.directive('registerSso', function() {
                     $scope.registerText = '注册';
                     $scope.rData.password = '';
                     $scope.rData.rePassword = '';
+                    switch (e.data.data.code) {
+                        case 1:
+                            e.data.data.dmsg = '参数错误';
+                            break;
+                        case 2:
+                            e.data.data.dmsg = '参数错误';
+                            break;
+                        case 3:
+                            e.data.data.dmsg = '用户已存在';
+                            break;
+                        default:
+                            e.data.data.dmsg = '参数错误';
+                            break;
+                    }
                     try {
-                        binApp.alert(e.data.data.msg || '请重试', {
+                        binApp.alert(e.data.data.dmsg || '请重试', {
                             action: 'top'
                         });
                     } catch (err) {

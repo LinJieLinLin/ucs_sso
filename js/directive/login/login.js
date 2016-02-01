@@ -19,9 +19,30 @@ directiveSso.directive('loginSso', function() {
             $scope.lData = {};
             $scope.msg = {};
             $scope.focus = {};
-            $scope.regExp = {};
+            $scope.regExp = {
+                account: /^[a-zA-Z0-9_\u4e00-\u9fa5]{2,50}$/,
+                email: /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/,
+                tel: /^1[3|4|5|7|8][0-9]\d{8}$/,
+                id: /(^\d{15}$)|(^\d{17}([0-9]|X)$)/
+            };
+            
+            //读取config
+            $scope.readConfig = function(argType) {
+                try {
+                    var c = DYCONFIG[argType];
+                    ssoUrl = c.rootUrl;
+                } catch (e) {}
+            };
+            //初始化请求
+            $scope.initUrl = function() {
+                $scope.requestUrl = {
+                    login: ssoUrl + 'sso/api/login',
+                    eg: ssoUrl + 'api'
+                };
+            };
             //初始化
             $scope.init = function() {
+                $scope.readConfig('sso');
                 if (ssoUrl[ssoUrl.length - 1] !== '/') {
                     ssoUrl += '/';
                 }
@@ -29,6 +50,7 @@ directiveSso.directive('loginSso', function() {
                 if (localStorage.account) {
                     $scope.lData.account = localStorage.account;
                 }
+                $scope.initUrl();
             };
             $scope.init();
 
@@ -56,6 +78,19 @@ directiveSso.directive('loginSso', function() {
                     $scope.msg.account = '请输入邮箱/用户名/已验证手机';
                     return -1;
                 }
+                var msg = '数据有误，请重新输入';
+                if ($scope.regExp.email.test(argData.account)) {
+                    argData.email = argData.account;
+                    msg = '';
+                }
+                if ($scope.regExp.tel.test(argData.account)) {
+                    argData.tel = argData.account;
+                    msg = '';
+                }
+                if ($scope.regExp.account.test(argData.account)) {
+                    msg = '';
+                }
+                $scope.msg.account = msg;
                 localStorage.account = $scope.lData.account;
                 return 0;
             };
@@ -127,7 +162,7 @@ directiveSso.directive('loginSso', function() {
                 };
                 var option = {
                     method: 'GET',
-                    url: ssoUrl + 'sso/api/login?time=' + new Date().getTime(),
+                    url: $scope.requestUrl.login,
                     params: data
                 };
                 $scope.loginText = '正在登录...';
@@ -156,7 +191,7 @@ directiveSso.directive('loginSso', function() {
                     }
                 }, function(e) {
                     $scope.loginText = '登录';
-                    $scope.lData.password = '';
+                    // $scope.lData.password = '';
                     try {
                         binApp.alert(e.data.data.msg || '请重试', {
                             action: 'top'
