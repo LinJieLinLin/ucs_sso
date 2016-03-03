@@ -9,18 +9,6 @@ module.exports = function(gulp, _, dir) {
 
     gulp.task('copy:file', ['copy:js', 'copy:html', 'copy:css', 'copy:imgs', 'copy:png'], function() {
         console.log('copy:file');
-        // var jsFilter = _.filter('**/*.js', {
-        //     restore: true
-        // });
-        // // var scssFilter = _.filter('!*.scss', {restore: true});
-        // return gulp.src([dir('build/**/*'), '!' + dir('**/*.scss')])
-        //     // .pipe(jsFilter)
-        //     // .pipe(jsFilter.restore)
-        //     // .pipe(htmlFilter)
-        //     // .pipe(htmlFilter.restore)
-        //     // .pipe(scssFilter)
-        //     // .pipe(scssFilter.restore)
-        //     .pipe(gulp.dest(dir('../')));
     });
     gulp.task('copy:js', function() {
         console.log('js');

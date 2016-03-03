@@ -16,12 +16,21 @@ module.exports = function(gulp, _, dir) {
     ]), function() {
         console.log('serve:hello world');
         browserSync.init({
-            server: {
-                // routes: {
-                //     '/bower_components': 'bower_components'
-                // },
-                baseDir: '../../'
-            },
+            // server: {
+            //     // routes: {
+            //     //     '/bower_components': 'bower_components'
+            //     // },
+            //     baseDir: '../../'
+            // },
+            proxy: {
+                target: 'http://localhost:8080',
+                reqHeaders: function (config) {
+                    return {
+                        agent: false
+                    };
+                }
+            }, 
+            ghostMode: false,
             port: 1239,
             ui: {
                 port: 4400

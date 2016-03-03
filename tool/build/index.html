@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RCP">
+<html lang="en" ng-app="SSO">
 
 <head>
     <meta charset="UTF-8">
@@ -15,14 +15,16 @@
     <meta name="description" content="云资源 - 用户登录" />
     <link href="css/common.css" rel="stylesheet" type="text/css" />
     <link href="css/login.css" rel="stylesheet" type="text/css" />
-    <!-- lib -->
     <script src="../jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="../angular/angular.min.js" type="text/javascript"></script>
     <script src="../angular-placeholder-ie/placeholder-ie.js" type="text/javascript"></script>
     <script src="../config-dy/config-dy.js" type="text/javascript"></script>
-    <!-- js -->
+    <!-- build:js js/min/index.min.js-->
     <script src="js/common/common.js" type="text/javascript"></script>
+    <script src="js/common/sso.js" type="text/javascript"></script>
     <script src="js/main/main.js" type="text/javascript"></script>
+    <!-- endbuild-->
+
     <!-- directive -->
     <link href="js/directive/footer/footer.css" rel="stylesheet" type="text/css" />
     <script src="js/directive/footer/footer.js" type="text/javascript"></script>
@@ -41,7 +43,7 @@
                 <img src="imgs/login/login_1.jpg" />
             </div>
             <div class="f-r">
-                <login-sso></login-sso>
+                <login-sso c="loginConfig"></login-sso>
             </div>
             <div class="clear"></div>
         </div>

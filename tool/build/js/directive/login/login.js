@@ -25,13 +25,21 @@ directiveSso.directive('loginSso', function() {
                 tel: /^1[3|4|5|7|8][0-9]\d{8}$/,
                 id: /(^\d{15}$)|(^\d{17}([0-9]|X)$)/
             };
-            
+
             //读取config
             $scope.readConfig = function(argType) {
-                try {
-                    var c = DYCONFIG[argType];
-                    ssoUrl = c.rootUrl;
-                } catch (e) {}
+                var c = {};
+                if ($scope.c) {
+                    c = $scope.c;
+                } else {
+                    try {
+                        c = DYCONFIG[argType];
+                    } catch (e) {}
+                }
+                if (c.rUrl && c.rUrl[c.rUrl.length - 1] !== '/') {
+                    c.rUrl += '/';
+                }
+                return c.rUrl;
             };
             //初始化请求
             $scope.initUrl = function() {
@@ -42,10 +50,7 @@ directiveSso.directive('loginSso', function() {
             };
             //初始化
             $scope.init = function() {
-                $scope.readConfig('sso');
-                if (ssoUrl[ssoUrl.length - 1] !== '/') {
-                    ssoUrl += '/';
-                }
+                ssoUrl = $scope.readConfig('sso') || ssoUrl;
                 $scope.loginText = '登录';
                 if (localStorage.account) {
                     $scope.lData.account = localStorage.account;
@@ -75,10 +80,10 @@ directiveSso.directive('loginSso', function() {
                     }
                 } catch (e) {}
                 if (!argData.account) {
-                    $scope.msg.account = '请输入邮箱/用户名/已验证手机';
+                    $scope.msg.account = '请输入邮箱/用户名/手机号';
                     return -1;
                 }
-                var msg = '数据有误，请重新输入';
+                var msg = '请输入2-20位的邮箱/用户名/手机号';
                 if ($scope.regExp.email.test(argData.account)) {
                     argData.email = argData.account;
                     msg = '';
@@ -91,8 +96,12 @@ directiveSso.directive('loginSso', function() {
                     msg = '';
                 }
                 $scope.msg.account = msg;
-                localStorage.account = $scope.lData.account;
-                return 0;
+                if (!$scope.msg.account) {
+                    localStorage.account = $scope.lData.account;
+                    return 0;
+                } else {
+                    return -1;
+                }
             };
             $scope.checkFunc.password = function(argData) {
                 if (!argData.password) {
@@ -107,7 +116,9 @@ directiveSso.directive('loginSso', function() {
             };
             $scope.checkLoginSso = function(argData, argType) {
                 $scope.focus = {};
-                $scope.msg = {};
+                if (argType) {
+                    $scope.msg[argType] = '';
+                }
                 var msg = '填写数据有误！';
                 if (argType) {
                     try {
@@ -130,7 +141,7 @@ directiveSso.directive('loginSso', function() {
                 if (!result) {
                     return '';
                 }
-                return decodeURIComponent(result[1]);
+                return decodeURIComponent(decodeURI(result[1]));
             };
             //注册
             $scope.register = function() {
@@ -171,14 +182,8 @@ directiveSso.directive('loginSso', function() {
                     $scope.lData.password = '';
                     var url = getUrl('url');
                     var userInfo = rs.data.usr;
-                    if (userInfo.BAttr && userInfo.BAttr.HELP && userInfo.BAttr.HELP[0] && userInfo.BAttr.HELP[0].val == 1) {
-                        var type = url.match(/(http|https):\/\//)[0];
-                        var u = type + url.split(type)[1].split('/')[0] + '/guidance-space.html' + '?token=' + rs.data.token;
-                        window.location.href = u;
-                        return;
-                    }
                     if (url === '') {
-                        window.location.href = 'ucenter/my.html?token=' + rs.data.token;
+                        window.location.href = 'my.html?token=' + rs.data.token;
                         return;
                     }
                     var urlArr = url.split('#');
@@ -190,14 +195,15 @@ directiveSso.directive('loginSso', function() {
                         window.location.href = url + '?token=' + rs.data.token + hash;
                     }
                 }, function(e) {
-                    $scope.loginText = '登录';
-                    // $scope.lData.password = '';
+                    $timeout(function() {
+                        $scope.loginText = '登录';
+                    }, 500);
                     try {
-                        binApp.alert(e.data.data.msg || '请重试', {
+                        binApp.alert(e.data.data.msg || '帐号或密码错误', {
                             action: 'top'
                         });
                     } catch (err) {
-                        alert(e.data.data.msg || '请重试');
+                        alert(e.data.data.msg || '帐号或密码错误');
                     }
                 });
             };

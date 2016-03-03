@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="RCP">
+<html lang="en" ng-app="SSO">
 
 <head>
     <meta charset="UTF-8">
@@ -18,29 +18,26 @@
     <!-- lib -->
     <script src="../jquery/dist/jquery.min.js" type="text/javascript"></script>
     <script src="../angular/angular.min.js" type="text/javascript"></script>
+    <script src="../angular-placeholder-ie/placeholder-ie.js" type="text/javascript"></script>
+    <script src="../config-dy/config-dy.js" type="text/javascript"></script>
     <!-- js -->
     <script src="js/common/common.js" type="text/javascript"></script>
-    <script src="js/login/login.js" type="text/javascript"></script>
+    <script src="js/common/sso.js" type="text/javascript"></script>
+    <script src="js/main/main.js" type="text/javascript"></script>
     <!-- directive -->
+    <link href="js/directive/header/header.css" rel="stylesheet" type="text/css" />
+    <script src="js/directive/header/header.js" type="text/javascript"></script>
     <link href="js/directive/footer/footer.css" rel="stylesheet" type="text/css" />
     <script src="js/directive/footer/footer.js" type="text/javascript"></script>
-    <link href="js/directive/register/register.css" rel="stylesheet" type="text/css" />
-    <script src="js/directive/register/register.js" type="text/javascript"></script>
 </head>
 
-<body ng-controller="loginCtrl" class="gray-bg">
+<body ng-controller="mainCtrl" class="gray-bg">
+    <section>
+        <header-sso c="headerConfig"></header-sso>
+    </section>
     <section class="g-w-mid register-head">
-        <span>用户注册</span>
+        <span>个人中心</span>
         <span>|</span>
-        <span>User Registration</span>
-    </section>
-    <section class="g-w-mid ">
-        <div class="register-view">
-            <register-sso></register-sso>
-        </div>
-    </section>
-    <section class="g-w-mid">
-        <footer-sso a='hi'></footer-sso>
     </section>
 </body>
 

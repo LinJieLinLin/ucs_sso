@@ -12,7 +12,7 @@
     .b-red {
         border: 1px solid red;
     }
-    .b-blue{
+    .b-blue {
         border: 1px solid rgb(87, 162, 216);
     }
     .b-err {
@@ -89,11 +89,41 @@
         span {
             margin-left: 10px;
         }
+        &.tip-right {
+            left: 103%;
+            top: -1px;
+        }
+        &.tip-err {
+            @extend .b-err;
+            background-color: #fff2f2;
+            color: #ff3333;
+        }
     }
-    .tip-err {
-        @extend .b-err;
-        background-color: #fff2f2;
-        color: #ff3333;
+    .input-icon {
+        position: absolute;
+        right: 7px;
+        top: 5px;
+        width: 18px;
+        height: 18px;
+        overflow: hidden;
+        display: block;
+        z-index: 20;
+        em {
+            width: 18px;
+            height: 18px;
+            overflow: hidden;
+            display: block;
+        }
+        .icon-su {
+            background-image: url(common_icon.png);
+            background-repeat: no-repeat;
+            background-position: 0 -1168px;
+        }
+        .icon-err {
+            background-image: url(common_icon.png);
+            background-repeat: no-repeat;
+            background-position: 0 -1209px;
+        }
     }
 }
 

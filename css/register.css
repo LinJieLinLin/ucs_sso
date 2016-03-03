@@ -17,15 +17,3 @@ body {
   box-shadow: 0 1px 1px #D5D5D5, 0 5px 5px rgba(50, 50, 50, 0.1);
   background: #Fff;
 }
-
-@media screen and (max-width: 1240px) {
-  html {
-    min-width: 1024px;
-  }
-  body {
-    min-width: 1024px;
-  }
-  .g-w-mid {
-    width: 1000px;
-  }
-}

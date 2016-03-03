@@ -21,7 +21,7 @@
   border: 1px solid #57a2d8;
 }
 
-.login-sso .b-err, .login-sso .tip-err {
+.login-sso .b-err, .login-sso .tip.tip-err {
   border: 1px solid #ffb2b2;
 }
 
@@ -109,9 +109,44 @@
   margin-left: 10px;
 }
 
-.login-sso .tip-err {
+.login-sso .tip.tip-right {
+  left: 103%;
+  top: -1px;
+}
+
+.login-sso .tip.tip-err {
   background-color: #fff2f2;
   color: #ff3333;
+}
+
+.login-sso .input-icon {
+  position: absolute;
+  right: 7px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  display: block;
+  z-index: 20;
+}
+
+.login-sso .input-icon em {
+  width: 18px;
+  height: 18px;
+  overflow: hidden;
+  display: block;
+}
+
+.login-sso .input-icon .icon-su {
+  background-image: url(common_icon.png);
+  background-repeat: no-repeat;
+  background-position: 0 -1168px;
+}
+
+.login-sso .input-icon .icon-err {
+  background-image: url(common_icon.png);
+  background-repeat: no-repeat;
+  background-position: 0 -1209px;
 }
 
 @media screen and (max-width: 1240px) {
