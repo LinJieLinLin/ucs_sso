@@ -21,7 +21,7 @@
     "jquery": "1.11.1",
     "angular": "1.2.9",
     "angular-mocks": "1.2.9",
-    "config-dy": "https://w.gdy.io/dyf_w/conf.git",
+    "config-dy": "https://github.com/LinJieLinLin/config-dy.git",
     "angular-placeholder-ie": "*"
   },
   "scripts": {
