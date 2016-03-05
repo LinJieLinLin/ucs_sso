@@ -1,0 +1,267 @@
+.slide-img {
+  position: relative;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 640px;
+  height: 480px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.slide-img ul {
+  list-style: none;
+  border: 1px solid red;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+.slide-img li {
+  position: absolute;
+  width: 100%;
+  left: -100%;
+  top: 0;
+}
+
+.slide-img li img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slide-img > button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: absolute;
+  z-index: 1000;
+  font-size: 30px;
+  background-color: #dcd4d4;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.slide-img > button:hover {
+  background-color: #d1c6c6;
+}
+
+.slide-img > button:active {
+  background-color: #ccc0c0;
+}
+
+.slide-img .prev {
+  top: 50%;
+  left: 0;
+}
+
+.slide-img .next {
+  top: 50%;
+  right: 0;
+}
+
+.slide-img .slide-l-0 {
+  -webkit-animation-name: slide-l;
+     -moz-animation-name: slide-l;
+       -o-animation-name: slide-l;
+          animation-name: slide-l;
+  -webkit-animation-duration: 1.5s;
+     -moz-animation-duration: 1.5s;
+       -o-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.slide-img .slide-l-1 {
+  -webkit-animation-name: slide-r;
+     -moz-animation-name: slide-r;
+       -o-animation-name: slide-r;
+          animation-name: slide-r;
+  -webkit-animation-duration: 1.5s;
+     -moz-animation-duration: 1.5s;
+       -o-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.slide-img .slide-r-0 {
+  -webkit-animation-name: slide-l1;
+     -moz-animation-name: slide-l1;
+       -o-animation-name: slide-l1;
+          animation-name: slide-l1;
+  -webkit-animation-duration: 1.5s;
+     -moz-animation-duration: 1.5s;
+       -o-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.slide-img .slide-r-1 {
+  -webkit-animation-name: slide-r1;
+     -moz-animation-name: slide-r1;
+       -o-animation-name: slide-r1;
+          animation-name: slide-r1;
+  -webkit-animation-duration: 1.5s;
+     -moz-animation-duration: 1.5s;
+       -o-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-fill-mode: forwards;
+     -moz-animation-fill-mode: forwards;
+       -o-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slide-l {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-moz-keyframes slide-l {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-o-keyframes slide-l {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes slide-l {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@-webkit-keyframes slide-r {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-moz-keyframes slide-r {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-o-keyframes slide-r {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes slide-r {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-webkit-keyframes slide-l1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-moz-keyframes slide-l1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-o-keyframes slide-l1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes slide-l1 {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes slide-r1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-moz-keyframes slide-r1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@-o-keyframes slide-r1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes slide-r1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
