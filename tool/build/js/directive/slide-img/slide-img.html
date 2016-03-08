@@ -1,7 +1,0 @@
-<div class="slide-img" ng-mouseenter="play(1)" ng-mouseleave="play()">
-    <button type="button" class="prev" ng-click="prev()"><span><</span></button>
-    <button type="button" class="next" ng-click="next()"><span>></span></button>
-    <ul ng-style="d.ulStyle">
-        <li ng-repeat="i in imgs track by $index" ng-class="getClass($index)" ng-style="d.liStyle"><img ng-src="{{i}}" alt="$index"></li>
-    </ul>
-</div>

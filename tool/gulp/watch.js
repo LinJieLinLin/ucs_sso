@@ -3,7 +3,7 @@ var browserSync = require('browser-sync');
 module.exports = function(gulp, _, dir) {
 
     gulp.task('reload', function() {
-        console.log('-----------------');
+        console.log('-----------------reload-----------------');
         browserSync.reload();
     });
 
@@ -54,7 +54,6 @@ module.exports = function(gulp, _, dir) {
         gulp.watch(dir('build/**/*.html'), _.sync(gulp).sync(['copy:html', 'reload']));
         gulp.watch(dir('build/**/*.css'), _.sync(gulp).sync(['copy:css', 'reload']));
         gulp.watch(dir('build/imgs/*.*'), _.sync(gulp).sync(['copy:imgs', 'reload']));
-
         gulp.watch(dir('build/**/*.scss'), _.sync(gulp).sync(['sass', 'reload']));
 
         // gulp.watch(dir('build/**/*'), _.sync(gulp).sync(['reload']));

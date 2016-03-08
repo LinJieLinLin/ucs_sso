@@ -1,5 +1,6 @@
 module.exports = function (gulp, _, dir) {
     gulp.task('sass', function () {
+        console.log('build scss');
         return gulp.src(dir('build/**/*.scss'))
         .pipe(_.plumber())
 
