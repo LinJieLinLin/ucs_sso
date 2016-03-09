@@ -1,0 +1,40 @@
+<!DOCTYPE html><html ng-app xmlns:wb=http://open.weibo.com/wb><head><meta http-equiv=Content-Type content="text/html; charset=utf-8"><title>云资源 - 用户登录</title><meta name=renderer content=webkit><meta http-equiv=X-UA-Compatible content="IE=edge"><meta http-equiv=cache-control content="max-age=0"><meta http-equiv=cache-control content=no-cache><meta http-equiv=expires content=0><meta http-equiv=expires content="Tue, 01 Jan 1980 1:00:00 GMT"><meta http-equiv=pragma content=no-cache><meta name=keywords content="云资源 - 用户登录"><meta name=description content="云资源 - 用户登录"><link href=css/common.css rel=stylesheet type=text/css><link href=css/style-main.css rel=stylesheet type=text/css><script src=scripts/common/common.js type=text/javascript></script><script src=scripts/common/default.js type=text/javascript></script><script type=text/javascript src=scripts/common/jquery-1.7.2.min.js></script><!--// <script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="101254692" data-redirecturi="http://sso.dev.jxzy.com" charset="utf-8" data-callback="true"></script>--><!--// <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=886838876&debug=true" type="text/javascript" charset="utf-8"></script>--><script type=text/javascript src=scripts/makefile/login.js></script><script src=lib/angular-1.2.5/angular.min.js></script><script type=text/javascript>
+    function loginC($scope) {
+
+        init();
+
+        function init() {
+            $.ajax({
+                url: '/ucenter/api/checkReg',
+                dataType: "json",
+                success: function(msg) {
+                    // console.log(msg);
+                    $scope.engReg = msg.msg;
+                    // console.log($scope.engReg);
+                    $scope.$apply();
+                }})
+        }
+    }
+    </script><style>
+    #login_container {
+        display: inline;
+        padding-left: 5px;
+    }
+    
+    #wb_connect_btn {
+        display: inline;
+        top: -9px;
+        position: relative;
+        padding-left: 5px;
+    }
+    </style></head><body class=gray-bg ng-controller=loginC><div class="gradient-bg-body gray-bg"><div class=overflowBody><!--header view--><div class="head-view g-min-w s-min-w"><div class="g-w-mid s-w-mid"><div class=login-head><!--<a class="logo">
+ <img src="imgs/pass_logo.png" />
+ </a>
+ <div class="head-name">
+ <span>登录</span>
+ </div>--><div style="color:#1093be;float:left;font-size:30px;padding:12px 0 0;height:50px;position:relative;"><span>用户登录</span> <span>|</span> <span>User Login</span></div></div></div><div class=clear></div></div><!--header view end--><!--mid view--><div class="mid-view g-w-m s-min-w"><div class="g-w-mid s-w-mid"><div class=login-view><div class=login-part-view><div class=login-ad-view><a><img src=imgs/test/login_ad_1.jpg width=500 height=350></a></div><input type=hidden name=url value={{.Url}} id=url><div class=login-part-pop><div class=wrap><ul class=ul><li class=li><div class=key-name>用户名/邮箱</div><div class="check-input-box user-name-text" id=usr-green><input type=text class=text value onfocus=usrFocus() onblur=usrBlur() placeholder=邮箱/用户名/手机号 id=usr maxlength=20><div class="point-info erro-info" id=usr-tips style=display:none>请输入邮箱/用户名/已验证手机</div></div><!--<div class="key-clean" onclick="cleanUsr()">X</div>--></li><li class=li><div class=key-name>密码</div><div class="check-input-box password-text" id=pwd-green><input type=password class=text maxlength=20 value onfocus=pwdFocus() onblur=pwdBlur() id=pwd><div class="point-info erro-info" id=pwd-tips style=display:none>请输入密码</div></div></li><li class=li style="margin:10px 0;"><!--<input type="checkbox" name="ckeckbox" />自动登陆
+ <span>　</span>--><!--<a class="blue-c" onclick="Createing()">忘记密码？</a>
+ <span>　</span>--><div><a ng-show="engReg == '0'" class=blue-c id=register onclick=register()>免费注册</a></div><div style=display:none><a id=qqLoginBtn onclick=qqLogin()><img src=http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/bt_white_24X24.png alt=QQ登录 border=0><!--<a href="javascript:;" onclick="return window.open('https://graph.qq.com/oauth2.0/authorize?client_id=101254692&amp;response_type=token&amp;scope=all&amp;redirect_uri=http%3A%2F%2Fsso.t.jxzy.com', 'oauth2Login_10995' ,'height=525,width=585, toolbar=no, menubar=no, scrollbars=no, status=no, location=yes, resizable=yes');"><img src="http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Connect_logo_7.png" alt="QQ登录" border="0"></a>--></a><div id=wb_connect_btn><a href=javascript:void(0);><!--<img src="http://www.sinaimg.cn/blog/developer/wiki/32x32.png">--></a></div><div id=login_container><a href="https://open.weixin.qq.com/connect/qrconnect?appid=wx5fb6df7812f77588&redirect_uri=http://sso.dev.jxzy.com/weChat.html&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect"><img src=https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon24_appwx_logo.png></a></div></div></li><li class=li style="margin-top: -15px;"><a class="b-btn-icon login-btn" id=login onclick=loginSSO()>登录</a></li></ul></div></div><div class=clear></div></div></div></div><div class=clear></div></div><!--mid view end--><!--footer view--><div class="footer-view g-min-w s-min-w footer2-view"><div class="g-w-mid s-w-mid"><div class=footer-nav-box align=center><span><a href=http://www.itdayang.com/about.html target=_blank class="mg-l10 mg-r10">关于我们</a><i>|</i></span> <span><a href=http://www.itdayang.com/contact.html target=_blank class="mg-l10 mg-r10">联系我们</a><i>|</i></span> <span><a onclick=Createing() class="mg-l10 mg-r10">法律条款</a><i>|</i></span> <span><a onclick=Createing() class="mg-l10 mg-r10">帮助中心</a><i>|</i></span> <span><a onclick=Createing() class="mg-l10 mg-r10">意见反馈</a><i>|</i></span></div><div align=center>©2009-2015 广州市大洋信息技术股份有限公司 粤ICP备05139291号-4</div></div></div><!--footer view end--></div><!--溢出隐藏div end--></div><!--代替body 渐变背景div end--></body></html><script>
+winMinScale();
+fixedFooter(binApp.$('.footer-view')[0], 'fixed-footer');
+</script>

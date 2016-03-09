@@ -1,0 +1,692 @@
+@import '../../../css/module/_var';
+body {
+    font-size: $font-size-12;
+}
+
+.apply-space a {
+    text-decoration: none;
+}
+
+.apply-space {
+    background-color: $color-bg-gray-max;
+    color: $color-text-black-6;
+    padding-bottom: 40px;
+    .title {
+        font-size: $font-size-36;
+        font-weight: normal;
+        padding-top: 75px;
+        text-align: center;
+    }
+    .b-wid {
+        margin: auto;
+        position: relative;
+        width: 75pc;
+    }
+    .h20 {
+        height: 20px;
+        width: 100%;
+    }
+    .h50 {
+        height: 50px;
+        width: 100%;
+    }
+    .b-one {
+        background: url(img/bg-a.png) repeat-x;
+        background-size: 100% 100%;
+        height: 520px;
+        position: relative;
+    }
+    .b-one-png {
+        background: url(img/bg-a-a.png) no-repeat 100% 100%;
+        background-size: contain;
+        height: 100%;
+        position: relative;
+    }
+    .p-btn {
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        top: 318px;
+        width: 192px;
+    }
+    .btn {
+        *display: inline;
+        background: $color-text-light-blue;
+        border-radius: 4px;
+        color: $color-bg-white;
+        cursor: pointer;
+        display: inline-block;
+        font-size: $font-size-18;
+        font-weight: bold;
+        height: 57px;
+        line-height: 57px;
+        margin: 20px 6px 20px 0;
+        text-align: center;
+        text-decoration: none;
+        zoom: 1;
+    }
+    .b-two {
+        background: url(img/bg-b.png) no-repeat 0 185px;
+        background-size: contain;
+        height: 620px;
+        position: relative;
+    }
+    .b-three {
+        background: url(img/bg-c.png) repeat-x;
+        background-size: 100% 100%;
+        height: 550px;
+        position: relative;
+    }
+    .b-three-png {
+        background: url(img/bg-c-a.png) no-repeat 56px 162px;
+        height: 100%;
+        position: relative;
+    }
+    .b-four {
+        height: 550px;
+        position: relative;
+        .content {
+            height: 250px;
+            position: absolute;
+            top: 188px;
+        }
+        .teacher-show {
+            width: 240px;
+        }
+        .show-w {
+            text-align: center;
+            width: 160px;
+        }
+        .teacher-img {
+            border: 4px solid $color-border-green;
+            border-radius: 50%;
+            height: 160px;
+            margin-bottom: 30px;
+            width: 160px;
+            img {
+                border-radius: 50%;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        .teacher-name {
+            font-size: $font-size-18;
+            text-align: center;
+        }
+    }
+    .text-a {
+        left: 0;
+        position: absolute;
+        top: 300px;
+        width: 240px;
+    }
+    .text-b {
+        left: 240px;
+        position: absolute;
+        top: 380px;
+        width: 240px;
+    }
+    .text-c {
+        left: 480px;
+        position: absolute;
+        top: 300px;
+        width: 240px;
+    }
+    .text-d {
+        left: 720px;
+        position: absolute;
+        top: 380px;
+        width: 240px;
+    }
+    .text-e {
+        left: 960px;
+        position: absolute;
+        top: 300px;
+        width: 240px;
+    }
+    .text-title {
+        font-size: $font-size-20;
+        font-weight: normal;
+        padding-bottom: 10px;
+        text-align: center;
+    }
+    .text-body {
+        color: $color-text-gray;
+        font-size: $font-size-14;
+        line-height: 25px;
+    }
+    .i-c {
+        color: $color-text-green;
+        padding-right: 5px;
+    }
+    .i-teacher {
+        float: left;
+        margin: 5px 10px 0 0;
+    }
+    .b-l {
+        float: left;
+        position: relative;
+        width: 920px;
+    }
+    .b-r {
+        float: right;
+        position: relative;
+        width: 260px;
+    }
+    .r-border {
+        border: 1px solid $color-border-gray;
+    }
+    .r-border a:link {
+        color: $color-text-dark-gray;
+    }
+    .r-border a:visited {
+        color: $color-text-dark-gray;
+    }
+    .r-border a:hover {
+        color: $color-text-blue;
+    }
+    .r-title {
+        font-size: $font-size-18;
+        margin: 15px 20px;
+    }
+    .r-img {
+        border: 0 solid $color-border-green;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 78px;
+        margin: 15px 17px;
+        width: 78px;
+        img {
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+        }
+    }
+    .pro-list {
+        border-top: 1px solid $color-border-gray;
+        color: $color-text-dark-gray;
+        font-size: $font-size-12;
+        padding: 10px 20px;
+    }
+    .teacher-list {
+        border-top: 1px solid $color-border-gray;
+        font-size: $font-size-12;
+        padding: 20px 16px;
+    }
+    .odd {
+        background-color: $color-bg-white;
+    }
+    .even {
+        background-color: $color-bg-gray-max;
+    }
+    .l-w {
+        padding: 0 32px;
+        position: relative;
+    }
+    .l-step-title {
+        font-size: $font-size-18;
+        padding: 20px 0;
+    }
+    .l-fs-24 {
+        font-size: $font-size-24;
+    }
+    .l-tab {
+        border-radius: 26px;
+        font-size: $font-size-14;
+        height: 52px;
+        line-height: 52px;
+        position: relative;
+        width: 100%;
+    }
+    .l-line {
+        border-left: 1px $color-border-gray solid;
+        height: 40px;
+        position: absolute;
+        top: 5px;
+    }
+    .ball-1 {
+        background-color: $color-bg-white;
+        border-radius: 33px;
+        cursor: pointer;
+        display: inline-block;
+        height: 66px;
+        left: -1px;
+        line-height: 66px;
+        position: absolute;
+        text-align: center;
+        top: -7px;
+        width: 66px;
+    }
+    .ball-2 {
+        background-color: $color-bg-white;
+        border-radius: 33px;
+        display: inline-block;
+        height: 66px;
+        left: 272px;
+        line-height: 66px;
+        position: absolute;
+        text-align: center;
+        top: -7px;
+        width: 66px;
+    }
+    .ball-3 {
+        background-color: $color-bg-white;
+        border-radius: 33px;
+        display: inline-block;
+        height: 66px;
+        left: 537px;
+        line-height: 66px;
+        position: absolute;
+        text-align: center;
+        top: -7px;
+        width: 66px;
+    }
+    .ball {
+        background-color: $color-bg-gray-max;
+        border-radius: 30px;
+        color: $color-text-dark-gray;
+        display: inline-block;
+        font-size: $font-size-36;
+        height: 60px;
+        line-height: 60px;
+        margin: 3px;
+        text-align: center;
+        width: 60px;
+    }
+    .l-tab-1 {
+        background-color: $color-bg-gray-max;
+        display: inline-block;
+        text-align: center;
+        width: 272px;
+    }
+    .l-tab-one {
+        cursor: pointer;
+        margin-left: 40px;
+    }
+    .l-tab-three {
+        border-bottom-right-radius: 26px;
+        border-top-right-radius: 26px;
+    }
+    .l-protocol {
+        background-color: $color-bg-gray-max;
+        border: 1px solid $color-border-gray;
+        color: $color-text-dark-gray;
+        height: 433px;
+        overflow: auto;
+        padding: 12px 22px;
+    }
+    .l-scrollbar {
+        scrollbar-width: 20px;
+        scrollbar-arrow: none;
+        scrollbar-arrow-visible: none;
+    }
+    .l-scrollbar::-webkit-scrollbar {
+        width: 20px;
+        background-color: transparent;
+    }
+    .l-scrollbar::-webkit-scrollbar-thumb {
+        background-color: $color-bg-dark-green;
+        border-radius: 8px;
+    }
+    .l-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: $color-bg-dark-green;
+    }
+    .l-scrollbar::-webkit-scrollbar-thumb:active {
+        background-color: darken($color-bg-dark-green, 5%);
+    }
+    .l-reading {
+        font-size: $font-size-14;
+        text-align: center;
+    }
+    .l-btn {
+        background-color: $color-bg-dark-green;
+        border-radius: 50px;
+        color: $color-text-white;
+        cursor: pointer;
+        font-size: $font-size-18;
+        height: 50px;
+        line-height: 50px;
+        margin: 40px 306px 0 306px;
+        text-align: center;
+        width: 244px;
+    }
+    .l-back-btn {
+        background-color: $color-bg-dark-green;
+        border-radius: 4px;
+        bottom: 66px;
+        color: $color-text-white;
+        cursor: pointer;
+        font-size: $font-size-14;
+        height: 40px;
+        left: 400px;
+        line-height: 40px;
+        position: absolute;
+        text-align: center;
+        width: 120px;
+    }
+    .bg-blue {
+        background-color: $color-bg-dark-green;
+        color: $color-text-white;
+    }
+    .bg-b {
+        background-color: $color-bg-gray-max;
+    }
+    .bg-disable {
+        background-color: $color-bg-middle-gray;
+    }
+    .bg-d-png {
+        background: url(img/bg-d.png) no-repeat 184px 68px;
+        height: 587px;
+        position: relative;
+    }
+    .bg-e-png {
+        background: url(img/bg-e.png) no-repeat 300px 68px;
+        height: 587px;
+        position: relative;
+    }
+    .bg-s-png {
+        background: url(img/bg-s.png) no-repeat 300px 68px;
+        height: 587px;
+        position: relative;
+    }
+    .identity {
+        min-height: 600px;
+        padding-bottom: 20px;
+    }
+    .id-body {
+        border: 1px solid $color-border-gray;
+        min-height: 562px;
+    }
+    .l-id-info {
+        font-size: $font-size-14;
+        padding: 27px 0 0 0;
+    }
+    .l-input-name {
+        float: left;
+        height: 26px;
+        line-height: 26px;
+        width: 155px;
+        text-align: right;
+        padding-right: 25px;
+    }
+    .l-input-text {
+        margin-bottom: 35px;
+    }
+    .l-input-text input {
+        float: left;
+        height: 26px;
+        line-height: 26px;
+        margin-right: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 475px;
+    }
+    .ng-invalid-required {
+        box-shadow: none;
+    }
+    .l-input-text.ng-invalid {
+        background-color: #FA787E;
+    }
+    .l-input-text textarea {
+        height: 150px;
+        padding: 5px 10px;
+        width: 475px;
+    }
+    .l-up-img {
+        background: url(img/up-img.png) center center no-repeat $color-bg-gray-max;
+        cursor: pointer;
+        height: 146px;
+        width: 261px;
+        position: relative;
+        border: 1px solid $color-border-gray;
+        >div {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+            background-color: $color-bg-white;
+        }
+    }
+    .l-up-img img {
+        background: $color-bg-white;
+        max-height: 100%;
+        max-width: 100%;
+    }
+    .l-swf-up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+        filter: alpha(opacity=0);
+        width: 100%;
+        height: 100%;
+    }
+    .l-up-text {
+        color: $color-text-gray;
+        margin: 75px 0 0 27px;
+    }
+    .l-b-text {
+        color: $color-text-light-blue;
+    }
+    .l-tab-c {
+        font-size: $font-size-14;
+        margin: 0 10px;
+    }
+    .l-tab-cer {
+        border: 1px solid $color-border-gray;
+        cursor: pointer;
+        line-height: 40px;
+        text-align: center;
+    }
+    .l-tab-cer-border {
+        border: 2px solid $color-border-green;
+        color: $color-text-green;
+        height: 38px;
+    }
+    .pd-b85 {
+        padding-bottom: 85px;
+    }
+    .mg-l115 {
+        margin-left: 115px;
+    }
+    .red {
+        color: $color-text-red;
+    }
+    .info {
+        min-height: 540px;
+    }
+    .info-body {
+        // border: 1px solid $color-border-gray;
+        min-height: 300px;
+    }
+    .mg-t65 {
+        margin-top: 65px;
+    }
+    .mg-t72 {
+        margin-top: 72px;
+    }
+    .check-btn {
+        border: 2px solid $color-border-green;
+        border-radius: 8px;
+        color: $color-text-green;
+        cursor: pointer;
+        float: left;
+        height: 26px;
+        line-height: 26px;
+        text-align: center;
+        width: 154px;
+    }
+    .upload-img {
+        height: 320px;
+        position: relative;
+        width: 100%;
+    }
+    .l-input-tips {
+        float: left;
+        height: 26px;
+        line-height: 26px;
+    }
+    .l-input-tips i {
+        margin-right: 5px;
+    }
+    .blue {
+        color: $color-text-blue;
+    }
+    .green {
+        color: $color-text-green;
+    }
+    .l-320 {
+        left: 320px;
+    }
+    .re-sub {
+        background-color: $color-bg-yellow;
+        left: 480px;
+    }
+    .i-check {
+        background: url(img/check.png) no-repeat 50% 50%;
+        height: 60px;
+        width: 60px;
+    }
+    .tip {
+        left: 0;
+        position: absolute;
+        top: 31px;
+        height: 30px;
+        line-height: 30px;
+        margin-left: -1px;
+        width: 100%;
+        white-space: normal;
+        background: #f2f2f2;
+        z-index: 10;
+        @extend .b-gray;
+        span {
+            margin-left: 10px;
+        }
+        &.tip-right {
+            left: 103%;
+            top: -1px;
+        }
+        &.tip-err {
+            @extend .b-err;
+            background-color: #fff2f2;
+            color: #ff3333;
+        }
+    }
+    .input-icon {
+        position: absolute;
+        right: 7px;
+        top: 5px;
+        width: 18px;
+        height: 18px;
+        overflow: hidden;
+        display: block;
+        z-index: 20;
+        em {
+            width: 18px;
+            height: 18px;
+            overflow: hidden;
+            display: block;
+        }
+        .icon-su {
+            background-image: url(img/common_icon.png);
+            background-repeat: no-repeat;
+            background-position: 0 -1168px;
+        }
+        .icon-err {
+            background-image: url(img/common_icon.png);
+            background-repeat: no-repeat;
+            background-position: 0 -1209px;
+        }
+    }
+}
+
+.bg-w {
+    background-color: $color-bg-white;
+}
+
+@media screen and (max-width:1240px) {
+    .apply-space {
+        .b-wid {
+            width: 1000px;
+        }
+        .b-one {
+            height: 430px;
+        }
+        .b-two {
+            height: 520px;
+        }
+        .b-three {
+            height: 500px;
+        }
+        .b-three-png {
+            background-position-x: 0;
+            background-size: contain;
+        }
+        .text-a {
+            left: -57px;
+        }
+        .text-b {
+            left: 160px;
+        }
+        .text-c {
+            left: 380px;
+        }
+        .text-d {
+            left: 605px;
+        }
+        .text-e {
+            left: 800px;
+        }
+        .b-four {
+            height: 450px;
+            .teacher-show {
+                width: 200px;
+            }
+        }
+        .text-e {
+            left: 0;
+        }
+        .p-btn {
+            top: 245px;
+        }
+        .b-l {
+            width: 785px;
+        }
+        .b-r {
+            width: 200px;
+        }
+        .r-title {
+            margin: 15px 13px;
+        }
+        .l-tab-1 {
+            width: 227px;
+        }
+        .ball-2 {
+            left: 234px;
+        }
+        .ball-3 {
+            left: 460px;
+        }
+        .l-btn {
+            margin: 40px 235px 0 235px;
+        }
+        .mg-l115 {
+            margin-left: 50px;
+        }
+        .bg-d-png {
+            background: url(img/bg-d.png) no-repeat 120px 68px;
+        }
+        .l-back-btn {
+            left: 340px;
+        }
+        .bg-e-png {
+            background: url(img/bg-e.png) no-repeat 240px 68px;
+        }
+        .r-img {
+            margin: 8px 3px;
+        }
+        .l-input-name {
+            width: 100px;
+        }
+    }
+}

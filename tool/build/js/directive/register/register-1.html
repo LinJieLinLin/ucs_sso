@@ -1,0 +1,61 @@
+<section class="register-1" ng-keydown="keydown()">
+    <div>
+        <form name="register" class="register-form">
+            <label for="account">
+                <div class="input-1" ng-class="{'b-blue':focus.account==1,'b-red':msg.account&&!focus.account}">
+                    <div><span>*</span>用户名:</div>
+                    <input type="text" placeholder="邮箱/用户名/手机号" id="account" maxlength="20" ng-model="rData.account" ng-focus="checkFocus('account')" ng-blur="checkRegisterSso(rData,'account')" autofocus required>
+                    <div class="tip tip-err tip-right" ng-class="c.tip.class" ng-show="msg.account&&!focus.account">
+                        <span>{{msg.account}}</span>
+                    </div>
+                </div>
+            </label>
+            <label for="pwd">
+                <div class="input-2" ng-class="{'b-blue':focus.password==1,'b-red':msg.password&&!focus.password}">
+                    <div><span>*</span>密码:</div>
+                    <input type="password" placeholder="6-20位字母、数字或符号" id="pwd" maxlength="20" ng-model="rData.password" ng-focus="checkFocus('password')" ng-blur="checkRegisterSso(rData,'password')" required>
+                    <div class="tip tip-err  tip-right" ng-class="c.tip.class" ng-show="msg.password&&!focus.password">
+                        <span>{{msg.password}}</span>
+                    </div>
+                </div>
+            </label>
+            <label for="repwd">
+                <div class="input-2" ng-class="{'b-blue':focus.rePassword==1,'b-red':msg.rePassword&&!focus.rePassword}">
+                    <div><span>*</span>确认密码:</div>
+                    <input type="password" placeholder="重复密码" id="repwd" maxlength="{{rData.password.length||0}}" ng-model="rData.rePassword" ng-focus="checkFocus('rePassword')" ng-blur="checkRegisterSso(rData,'rePassword')" required>
+                    <div class="tip tip-err tip-right" ng-class="c.tip.class" ng-show="msg.rePassword&&!focus.rePassword">
+                        <span>{{msg.rePassword}}</span>
+                    </div>
+                </div>
+            </label>
+            <label for="tel">
+                <div class="input-2" ng-class="{'b-blue':focus.rePassword==1,'b-red':msg.rePassword&&!focus.rePassword}">
+                    <div><span>*</span>验证手机:</div>
+                    <input type="password" placeholder="请输入您要绑定的手机号码" id="tel" maxlength="{{rData.password.length||0}}" ng-model="rData.rePassword" ng-focus="checkFocus('rePassword')" ng-blur="checkRegisterSso(rData,'rePassword')" required>
+                    <div class="tip tip-err tip-right" ng-class="c.tip.class" ng-show="msg.rePassword&&!focus.rePassword">
+                        <span>{{msg.rePassword}}</span>
+                    </div>
+                </div>
+            </label>
+            <label for="code">
+                <div class="code-index input-2" ng-class="{'b-blue':focus.rePassword==1,'b-red':msg.rePassword&&!focus.rePassword}">
+                    <div><span>*</span>短信验证码:</div>
+                    <input type="password" placeholder="手机验证码" id="code" maxlength="{{rData.password.length||0}}" ng-model="rData.rePassword" ng-focus="checkFocus('rePassword')" ng-blur="checkRegisterSso(rData,'rePassword')" required>
+                    <div class="tip tip-err tip-right" ng-class="c.tip.class" ng-show="msg.rePassword&&!focus.rePassword">
+                        <span>{{msg.rePassword}}</span>
+                    </div>
+                    <button class="send-code">发送验证码</button>
+                </div>
+            </label>
+        </form>
+        <label for="agree">
+            <div class="text">
+                <input type="checkbox" id="agree" /> 我已阅读并同意
+                <a>《酷校注册协议》</a>
+            </div>
+        </label>
+        <div class="text">
+            <button class="btn btn-reg" id="login" ng-mouseover="checkRegisterSso(rData,'rePassword')" ng-click="registerSso()">{{registerText}}</button>
+        </div>
+    </div>
+</section>
